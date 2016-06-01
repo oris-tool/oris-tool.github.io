@@ -1,6 +1,4 @@
 name: Oris Tool
 description: Analysis of timed and stochastic Petri nets
-markdown: redcarpet
-highlighter: true
 exclude: [Gemfile, Gemfile.lock]
   
