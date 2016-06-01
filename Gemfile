@@ -1,0 +1,12 @@
+source 'https://rubygems.org'
+
+gem 'jekyll'
+#gem 'jekyll-assets'
+#gem 'uglifier'
+#gem 'sass'
+#gem 'coffee-script'
+#gem 'jekyll-scholar'
+#gem 'nokogiri', '1.5.9'
+#gem 'jekyll-rendering'
+#gem 's3_website'
+#gem 'github-pages'

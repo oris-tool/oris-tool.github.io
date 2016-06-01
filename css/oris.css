@@ -1,0 +1,133 @@
+---
+# Front matter comment to ensure Jekyll properly reads file.
+---
+// Space out content a bit
+body
+  font-family: roboto, sans-serif
+  padding-top: 20px
+  padding-bottom: 20px
+  background-image: url('/assets/back.png')
+
+
+// Everything but the jumbotron gets side spacing for mobile first views
+.header, .footer
+  padding-left: 15px
+  padding-right: 15px
+
+// Make the masthead heading the same height as the navigation
+.header
+  margin-bottom: 1em
+  div.lab
+    margin-top: 5px
+    text-align: left
+    margin-bottom: 0
+    font-family: Open Sans, sans-serif
+    font-weight: 300
+    vertical-align: middle
+    font-size: 30px
+
+.footer
+  padding-top: 19px
+  color: #777
+  border-top: 1px solid #e5e5e5
+
+// Customize container
+@media (min-width: 768px)
+  .container
+    max-width: 960px
+
+.container-narrow > hr
+  margin: 30px 0
+
+.jumbotron
+  margin-top: 2em
+  overflow: auto
+  border-bottom: 1px solid #e5e5e5
+  background-color: rgba(227,227,227,0.45)
+  font-family: Open Sans, sans-serif
+  font-weight: 300
+  .btn
+    font-size: 21px
+    padding: 14px 24px
+    margin-top: 20px
+    margin-bottom: 14px
+  h1.oris
+    font-family: Open Sans, sans-serif
+    font-weight: 800
+  h1.tagline
+    font-family: Open Sans, sans-serif
+    font-size: 44px
+    line-height: 1.3em
+
+// Responsive: Portrait tablets and up
+@media screen and (min-width: 768px)
+  // Remove the padding we set earlier
+  .header, .section, .footer
+    padding-left: 0
+    padding-right: 0
+  // Space out the masthead
+  .header
+    margin-bottom: 30px
+  // Remove the bottom border on the jumbotron for visual effect
+  .jumbotron
+    border-bottom: 0
+  .header
+    div.lab
+      margin-top: 45px
+      text-align: center
+
+img#screenshot
+  width: 100%
+  margin-bottom: 1em
+
+div.section
+  margin: 40px 0
+  font-size: 20px
+  h4
+    margin-top: 20px
+    margin-bottom: 20px
+    font-family: Open Sans, sans-serif
+    font-weight: 300
+    font-size: 28px
+
+div.features
+  ul
+    li
+      margin-bottom: 1em
+      span.title
+        font-weight: 500
+      span.description
+        color: #222
+
+ol.bibliography li
+  margin-bottom: 0.5em
+
+div.contributors
+  h4
+    margin-bottom: 30px
+  div.contributor
+    margin-bottom: 30px
+    min-height: 140px
+    img.avatar
+      margin-right: 30px
+      height: 120px
+      width: 120px
+      border-radius: 60px
+      -webkit-transition: all 0.2s ease-out
+      vertical-align: middle
+      float: left
+      display: block
+    p.contributor
+      font-size: 24px
+      font-weight: 500
+      margin-top: 10px
+      margin-bottom: 0px
+      span
+        margin-left: 5px
+        font-size: 15px
+        position: relative
+        top: -2px
+    p.role
+      color: #888
+  p.others
+    padding-top: 40px
