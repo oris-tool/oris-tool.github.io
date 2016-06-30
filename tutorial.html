@@ -1,0 +1,35 @@
+---
+layout: default
+title: Oris Tool's tutorials and examples
+---
+
+<div class="row section features">
+  <h4>Getting Oris up and running</h4>
+  <p>First of all, let's learn how to get Oris up and running.</p>
+  <p>Once you have Oris downloaded from the link in the home, head to the download folder and unzip the Oris archive you just downloaded.</p>
+  <p>Then, you can open the folder created and run Oris by simply running either <i>run.bat</i>, if you are on Windows, or <i>run.sh</i>, if you are on Linux or Mac.</p>
+  <div class="alert alert-warning" role="alert">
+    <strong>Remember!</strong> Be sure to have the correct Java version installed, or Oris won't run.
+  </div>
+</div>
+
+<div class="row section features">
+  <h4>Simple network creation</h4>
+  <p>Now that we have Oris working and running we can start learning how to create our very first Petri Net with Oris following a simple example. The example Petri Net we're going to build will model a simple transmission protocol with timeout.</p>
+  <p>The very first step is to create a new empty net by clicking the button <img class="toolbar-btn" src="/images/new_btn.png"> from the toolbar. Alternatively, you can click <i>File</i> → <i>New</i>, from the menu, or use the shortcut <i>Ctrl+N</i>.</p>
+  <p>Let's start by adding a new place: to add a new place just click on the <img class="toolbar-btn" src="/images/place_btn.png"> button and then on a random position on the canvas. You can see a new place will spawn, as shown below:</p>
+  <p><img class="tutorial-screenshot" src="/images/first_place.png"></p>
+  <p>If we now double click on the place we just created, we can specify its name and the number of tokens in that place in the initial marking. Let's call it <i>ready</i> and give it one token, as shown below:</p>
+  <p><img class="tutorial-screenshot" src="/images/rename_place.png"></p>
+  <p>Now let's click <i>OK</i> to make the changes permanent.</p>
+  <div class="alert alert-info" role="alert">
+    <strong>Protip:</strong> If you select the <img class="toolbar-btn" src="/images/select_btn.png"> button, you can drag the place name for a better readability.
+  </div>
+  <p>With the same method we've just seen, let's add four more places: <i>sent</i>, <i>received</i> and <i>timedOut</i>, with zero tokens, and <i>sending</i>, with one. For more clarity, the relative position of the places should be as shown below:</p>
+  <p><img class="tutorial-screenshot" src="/images/all_places_added.png"></p>
+  <div class="alert alert-info" role="alert">
+    <strong>Protip 2:</strong> When you drag an element, Oris will show some helpful alignment lines.
+  </div>
+  <p>Now that we have all the places we need set, let's add some transition.</p>
+  <p>The first transition we're gonna add will be a uniformely distributed transition (also called <i>UNI</i>): to create our new UNI transition let's select the <img class="toolbar-btn" src="/images/uni_btn.png"> button and click between the places <i>ready</i> and <i>sent</i>.</p>
+</div>
