@@ -23,7 +23,7 @@ title: Oris Tool's tutorials and examples
   <p><img class="tutorial-screenshot" src="/images/rename_place.png"></p>
   <p>Now let's click <i>OK</i> to make the changes permanent.</p>
   <div class="alert alert-info" role="alert">
-    <strong>Protip:</strong> If you select the <img class="toolbar-btn" src="/images/select_btn.png"> button, you can drag the place name for a better readability.
+    <strong>Protip:</strong> If you select the <img class="toolbar-btn" src="/images/select_btn.png"> button, you can drag the place's name for a better readability.
   </div>
   <p>With the same method we've just seen, let's add four more places: <i>sent</i>, <i>received</i> and <i>timedOut</i>, with zero tokens, and <i>sending</i>, with one. For more clarity, the relative position of the places should be as shown below:</p>
   <p><img class="tutorial-screenshot" src="/images/all_places_added.png"></p>
@@ -31,5 +31,20 @@ title: Oris Tool's tutorials and examples
     <strong>Protip 2:</strong> When you drag an element, Oris will show some helpful alignment lines.
   </div>
   <p>Now that we have all the places we need set, let's add some transition.</p>
-  <p>The first transition we're gonna add will be a uniformely distributed transition (also called <i>UNI</i>): to create our new UNI transition let's select the <img class="toolbar-btn" src="/images/uni_btn.png"> button and click between the places <i>ready</i> and <i>sent</i>.</p>
+  <p>The first transition we're gonna add will be a uniformely distributed transition (also called <i>UNI</i>): to create our new UNI transition let's select the <img class="toolbar-btn" src="/images/uni_btn.png"> button and click between the places <i>ready</i> and <i>sent</i>. Then, let's double click on the newly created transition to customize it's parameters as follows:</p>
+  <p><img class="tutorial-screenshot" src="/images/uni_transition.png"></p>
+  <p>With these parameters we're basically telling the <i>send</i> transition to have a uniform probability distribution between 1 and 2 and to be able to fire only if the place <i>timedOut</i> has no marking (i.e. we want to send a message only if we've not yet timed out). Finally, selecting the <img class="toolbar-btn" src="/images/arc_btn.png">, we can create an arc between a place and a transition (or viceversa) by dragging the arc from the starting element to the destination element: in this case let's create an arc from <i>ready</i> to <i>send</i> and another one from <i>send</i> to <i>sent</i>.</p>
+  <p>The result should be as follows:</p>
+  <p><img class="tutorial-screenshot" src="/images/send_added.png"></p>
+  <p>Let's add three more transitions now.</p>
+  <p>The first will be a deterministiclally distributed transition (also called DET, added with the <img class="toolbar-btn" src="/images/det_btn.png"> button). Let's call this one <i>timeout</i> and give it a value (<i>Stochastic properties</i> tab) of 5. This transition should be place between <i>sending</i> and <i>timedOut</i>, with an arc from <i>sending</i> to <i>timeout</i> and another one from <i>timeout</i> to <i>timedOut</i>.</p>
+  <p>Then, we want to add an immediate transition (a.k.a. IMM, <img class="toolbar-btn" src="/images/imm_btn.png"> button) just above the <i>send</i> transition. We'll call this one <i>lost</i> and will have an incoming arc from <i>sent</i> and an outgoing one towards <i>ready</i>.</p>
+  <div class="alert alert-info" role="alert">
+    <strong>Protip 3:</strong> If you double-click on an arc, you can create joint nodes, for a better readability.
+  </div>
+  <p>Finally, we need a last IMM transition, between <i>sent</i> and <i>received</i>. This last transition, to be called <i>success</i>, should have two incoming arcs, one from <i>sent</i> and one from <i>sending</i>, and an outgoing one, towards <i>received</i>.</p>
+  <p>If done properly, the final result should be as follows:</p>
+  <p><img class="tutorial-screenshot" src="/images/timeout_final.png"></p>
+  <p>The Petri Net is now completed and is ready to be used for various analysis.</p>
+  <p>Remember to save the Petri Net before closing, by clicking the <img class="toolbar-btn" src="/images/save_btn.png"> button, if you want to reuse the net later.</p>
 </div>
