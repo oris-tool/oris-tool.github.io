@@ -15,7 +15,7 @@ title: Oris Tool's tutorials and examples
 
 <div class="row section features">
   <h4>Simple network creation</h4>
-  <p>Now that we have Oris working and running we can start learning how to create our very first Petri Net with Oris following a simple example. The example Petri Net we're going to build will model a simple transmission protocol with timeout.</p>
+  <p>Now that we have Oris working and running we can start learning how to create our very first Petri Net with Oris following a simple example. The example Petri Net we're going to build will model a simple transmission with timeout on a lossy channel.</p>
   <p>The very first step is to create a new empty net by clicking the button <img class="toolbar-btn" src="/images/new_btn.png"> from the toolbar. Alternatively, you can click <i>File</i> → <i>New</i>, from the menu, or use the shortcut <i>Ctrl+N</i>.</p>
   <p>Let's start by adding a new place: to add a new place just click on the <img class="toolbar-btn" src="/images/place_btn.png"> button and then on a random position on the canvas. You can see a new place will spawn, as shown below:</p>
   <p><img class="tutorial-screenshot" src="/images/first_place.png"></p>
@@ -46,5 +46,37 @@ title: Oris Tool's tutorials and examples
   <p>If done properly, the final result should be as follows:</p>
   <p><img class="tutorial-screenshot" src="/images/timeout_final.png"></p>
   <p>The Petri Net is now completed and is ready to be used for various analysis.</p>
-  <p>Remember to save the Petri Net before closing, by clicking the <img class="toolbar-btn" src="/images/save_btn.png"> button, if you want to reuse the net later.</p>
+  <p>Remember to save the Petri Net before closing, by clicking the <img class="toolbar-btn" src="/images/save_btn.png"> button, if you want to reuse the net later. This process will generate a file in XPN format that contains the Petri Net description.</p>
+</div>
+
+<div class="row section features">
+  <h4>Some example PNs</h4>
+  <p>You can download and open the following example PNs in Oris to experiment a bit around and learn how to do different kinds of analysis.</p>
+  <div class="row">
+    <div class="col-sm-6 col-md-4 card-container">
+      <div class="card transition">
+        <h2 class="transition">Transmission with Timeout</h2>
+        <p>Trasmission on a lossy channel with timeout mechanism.</p>
+        <div class="cta-container transition"><a href="/pns/timeout.xpn" download class="cta">Download</a></div>
+        <div class="card_circle transition pn-timeout"></div>
+      </div>
+    </div>
+    <div class="col-sm-6 col-md-4 card-container">
+      <div class="card transition">
+        <h2 class="transition">Preemptive Server Queue</h2>
+        <p>Queue with two customers and one server with preemptive repeat different policy.</p>
+        <div class="cta-container transition"><a href="/pns/queue.xpn" download class="cta">Download</a></div>
+        <div class="card_circle transition pn-queue"></div>
+      </div>
+    </div>
+    <!-- TO-FIX: rej.xpn (and .png) -->
+    <div class="col-sm-6 col-md-4 card-container">
+      <div class="card transition">
+        <h2 class="transition">Software Rejuvenation</h2>
+        <p>Software system subject to aging with a maintenance mechanism (rejuvenation).</p>
+        <div class="cta-container transition"><a href="/pns/rej.xpn" download class="cta">Download</a></div>
+        <div class="card_circle transition pn-rej"></div>
+      </div>
+    </div>
+  </div>
 </div>
