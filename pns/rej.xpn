@@ -1,32 +1,32 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <tpn-editor>
   <tpn-entities>
-    <joint uuid="b8d23fbc-ea3c-4143-82f6-52fa228b3c6f" x="564" y="184">
+    <joint uuid="b8d23fbc-ea3c-4143-82f6-52fa228b3c6f" x="224" y="497">
       <features/>
       <properties/>
     </joint>
-    <joint uuid="ee56cbd4-09a8-477d-8945-a8a03f842f72" x="742" y="184">
+    <joint uuid="ee56cbd4-09a8-477d-8945-a8a03f842f72" x="438" y="497">
       <features/>
       <properties/>
     </joint>
-    <place uuid="55a0f080-d949-4067-ae0c-8f080f2736de" x="224" y="263">
+    <place uuid="55a0f080-d949-4067-ae0c-8f080f2736de" x="224" y="296">
       <features/>
       <properties>
-        <property id="0.default.name" name="down" satellite-x="222" satellite-y="297"/>
+        <property id="0.default.name" name="down" satellite-x="222" satellite-y="330"/>
         <property id="default.marking" marking="0"/>
       </properties>
     </place>
-    <place uuid="8c9900e4-d8bc-4d48-8387-62fbb082ff46" x="564" y="105">
+    <place uuid="8c9900e4-d8bc-4d48-8387-62fbb082ff46" x="224" y="411">
       <features/>
       <properties>
-        <property id="0.default.name" name="wait" satellite-x="563" satellite-y="69"/>
+        <property id="0.default.name" name="wait" satellite-x="223" satellite-y="375"/>
         <property id="default.marking" marking="1"/>
       </properties>
     </place>
-    <place uuid="9cda930c-76cb-48dc-af09-1063b13bc05d" x="742" y="105">
+    <place uuid="9cda930c-76cb-48dc-af09-1063b13bc05d" x="438" y="411">
       <features/>
       <properties>
-        <property id="0.default.name" name="rej" satellite-x="743" satellite-y="70"/>
+        <property id="0.default.name" name="rej" satellite-x="439" satellite-y="376"/>
         <property id="default.marking" marking="0"/>
       </properties>
     </place>
@@ -37,90 +37,90 @@
         <property id="default.marking" marking="0"/>
       </properties>
     </place>
-    <place uuid="acfeaf80-fd1d-402d-b66a-6d7c99b517b3" x="425" y="105">
+    <place uuid="acfeaf80-fd1d-402d-b66a-6d7c99b517b3" x="438" y="105">
       <features/>
       <properties>
-        <property id="0.default.name" name="up" satellite-x="426" satellite-y="71"/>
+        <property id="0.default.name" name="up" satellite-x="439" satellite-y="71"/>
         <property id="default.marking" marking="1"/>
       </properties>
     </place>
-    <place uuid="f3be15f3-9292-4a2e-9d9a-ce500320d9cc" x="428" y="263">
+    <place uuid="f3be15f3-9292-4a2e-9d9a-ce500320d9cc" x="438" y="296">
       <features/>
       <properties>
-        <property id="0.default.name" name="err" satellite-x="425" satellite-y="294"/>
+        <property id="0.default.name" name="err" satellite-x="435" satellite-y="327"/>
         <property id="default.marking" marking="0"/>
       </properties>
     </place>
-    <transition rotation-angle="-1.5707963267948966" uuid="1ba30955-3920-4050-ae5f-9fb642219e45" x="425" y="184">
+    <transition rotation-angle="-1.5707963267948966" uuid="1ba30955-3920-4050-ae5f-9fb642219e45" x="438" y="200">
       <features>
         <feature id="transition.stochastic"/>
       </features>
       <properties>
-        <property id="0.default.name" name="error" satellite-x="386" satellite-y="194"/>
+        <property id="0.default.name" name="error" satellite-x="399" satellite-y="210"/>
         <property enabling-function="" id="10.default.enablingFunction"/>
         <property id="11.default.markingUpdate" marking-update=""/>
         <property id="12.default.resetTransitions" reset-transitions=""/>
-        <property eft="50" id="transition.stochastic" lft="150" property-data-type="1.type.uniform" satellite-x="390" satellite-y="210"/>
+        <property eft="50" id="transition.stochastic" lft="150" property-data-type="1.type.uniform" satellite-x="403" satellite-y="226"/>
       </properties>
     </transition>
-    <transition rotation-angle="0.0" uuid="22f3bafe-d507-4bba-a27d-956087eaf67d" x="653" y="105">
+    <transition rotation-angle="0.0" uuid="22f3bafe-d507-4bba-a27d-956087eaf67d" x="331" y="411">
       <features>
         <feature id="transition.stochastic"/>
       </features>
       <properties>
-        <property id="0.default.name" name="rejOp" satellite-x="653" satellite-y="130"/>
+        <property id="0.default.name" name="rejOp" satellite-x="331" satellite-y="436"/>
         <property enabling-function="" id="10.default.enablingFunction"/>
         <property id="11.default.markingUpdate" marking-update=""/>
         <property id="12.default.resetTransitions" reset-transitions=""/>
-        <property eft="0.05" id="transition.stochastic" lft="0.1" property-data-type="1.type.uniform" satellite-x="652" satellite-y="147"/>
+        <property eft="0.05" id="transition.stochastic" lft="0.1" property-data-type="1.type.uniform" satellite-x="330" satellite-y="453"/>
       </properties>
     </transition>
-    <transition rotation-angle="0.0" uuid="3bfc39d5-415f-4559-bcd4-af96aeee7af4" x="326" y="263">
+    <transition rotation-angle="0.0" uuid="3bfc39d5-415f-4559-bcd4-af96aeee7af4" x="331" y="296">
       <features>
         <feature id="transition.stochastic"/>
       </features>
       <properties>
-        <property id="0.default.name" name="fail" satellite-x="326" satellite-y="293"/>
+        <property id="0.default.name" name="fail" satellite-x="331" satellite-y="326"/>
         <property enabling-function="" id="10.default.enablingFunction"/>
         <property id="11.default.markingUpdate" marking-update="wait=0,rej=0"/>
         <property id="12.default.resetTransitions" reset-transitions=""/>
-        <property id="transition.stochastic" lambda="0.001" property-data-type="3.type.exponential" satellite-x="326" satellite-y="310"/>
+        <property id="transition.stochastic" lambda="0.001" property-data-type="3.type.exponential" satellite-x="331" satellite-y="343"/>
       </properties>
     </transition>
-    <transition rotation-angle="0.0" uuid="b0ce4f5f-d501-44bf-bf3e-54f8332f0905" x="324" y="105">
+    <transition rotation-angle="0.0" uuid="b0ce4f5f-d501-44bf-bf3e-54f8332f0905" x="331" y="105">
       <features>
         <feature id="transition.stochastic"/>
       </features>
       <properties>
-        <property id="0.default.name" name="repair" satellite-x="323" satellite-y="133"/>
+        <property id="0.default.name" name="repair" satellite-x="330" satellite-y="133"/>
         <property enabling-function="" id="10.default.enablingFunction"/>
         <property id="11.default.markingUpdate" marking-update="wait=1"/>
         <property id="12.default.resetTransitions" reset-transitions=""/>
-        <property eft="0.25" id="transition.stochastic" lft="0.5" property-data-type="1.type.uniform" satellite-x="325" satellite-y="149"/>
+        <property eft="0.25" id="transition.stochastic" lft="0.5" property-data-type="1.type.uniform" satellite-x="332" satellite-y="149"/>
       </properties>
     </transition>
-    <transition rotation-angle="-1.5707963267948966" uuid="bc4f394b-0bf2-491e-b79c-e63016c56981" x="224" y="184">
+    <transition rotation-angle="-1.5707963267948966" uuid="bc4f394b-0bf2-491e-b79c-e63016c56981" x="224" y="200">
       <features>
         <feature id="transition.stochastic"/>
       </features>
       <properties>
-        <property id="0.default.name" name="detect" satellite-x="262" satellite-y="197"/>
+        <property id="0.default.name" name="detect" satellite-x="262" satellite-y="213"/>
         <property enabling-function="" id="10.default.enablingFunction"/>
         <property id="11.default.markingUpdate" marking-update=""/>
         <property id="12.default.resetTransitions" reset-transitions=""/>
-        <property eft="0.5" id="transition.stochastic" lft="1" property-data-type="1.type.uniform" satellite-x="260" satellite-y="213"/>
+        <property eft="0.5" id="transition.stochastic" lft="1" property-data-type="1.type.uniform" satellite-x="260" satellite-y="229"/>
       </properties>
     </transition>
-    <transition rotation-angle="0.0" uuid="ca05626f-9696-4f15-a0e7-3142f09fc36d" x="653" y="184">
+    <transition rotation-angle="0.0" uuid="ca05626f-9696-4f15-a0e7-3142f09fc36d" x="331" y="497">
       <features>
         <feature id="transition.stochastic"/>
       </features>
       <properties>
-        <property id="0.default.name" name="clock" satellite-x="653" satellite-y="210"/>
+        <property id="0.default.name" name="clock" satellite-x="331" satellite-y="523"/>
         <property enabling-function="" id="10.default.enablingFunction"/>
         <property id="11.default.markingUpdate" marking-update="up=0,err=0,down=0,detected=0"/>
         <property id="12.default.resetTransitions" reset-transitions=""/>
-        <property id="transition.stochastic" priority="0" property-data-type="2.type.deterministic" satellite-x="653" satellite-y="226" value="100" weight="1"/>
+        <property id="transition.stochastic" priority="0" property-data-type="2.type.deterministic" satellite-x="331" satellite-y="539" value="100" weight="1"/>
       </properties>
     </transition>
     <arc from="9cda930c-76cb-48dc-af09-1063b13bc05d" to="22f3bafe-d507-4bba-a27d-956087eaf67d" uuid="15137c1d-e61f-4ed5-8adf-fb4f8a44b325">
