@@ -40,7 +40,7 @@ title: Oris Tool's tutorials and examples
   <p>The first will be a deterministiclally distributed transition (also called DET, added with the <img class="toolbar-btn" src="/images/det_btn.png"> button). Let's call this one <i>timeout</i> and give it a value (<i>Stochastic properties</i> tab) of 5. This transition should be place between <i>sending</i> and <i>timedOut</i>, with an arc from <i>sending</i> to <i>timeout</i> and another one from <i>timeout</i> to <i>timedOut</i>.</p>
   <p>Then, we want to add an immediate transition (a.k.a. IMM, <img class="toolbar-btn" src="/images/imm_btn.png"> button) just above the <i>send</i> transition. We'll call this one <i>lost</i> and will have an incoming arc from <i>sent</i> and an outgoing one towards <i>ready</i>.</p>
   <div class="alert alert-info" role="alert">
-    <strong>Protip 3:</strong> If you double-click on an arc, you can create joint nodes, for a better readability.
+    <strong>Protip 3:</strong> If you double-click on an arc, you can create joint nodes, for a better organization.
   </div>
   <p>Finally, we need a last IMM transition, between <i>sent</i> and <i>received</i>. This last transition, to be called <i>success</i>, should have two incoming arcs, one from <i>sent</i> and one from <i>sending</i>, and an outgoing one, towards <i>received</i>.</p>
   <p>If done properly, the final result should be as follows:</p>
@@ -56,7 +56,7 @@ title: Oris Tool's tutorials and examples
     <div class="col-sm-6 col-md-4 card-container">
       <div class="card transition">
         <h2 class="transition">Transmission with Timeout</h2>
-        <p>Trasmission on a lossy channel with timeout mechanism.</p>
+        <p>Trasmission on a lossy channel with a timeout mechanism.</p>
         <div class="cta-container transition"><a href="/pns/timeout.xpn" download class="cta">Download</a></div>
         <div class="card_circle transition pn-timeout"></div>
       </div>
@@ -69,7 +69,6 @@ title: Oris Tool's tutorials and examples
         <div class="card_circle transition pn-queue"></div>
       </div>
     </div>
-    <!-- TO-FIX: rej.xpn (and .png) -->
     <div class="col-sm-6 col-md-4 card-container">
       <div class="card transition">
         <h2 class="transition">Software Rejuvenation</h2>
@@ -79,4 +78,12 @@ title: Oris Tool's tutorials and examples
       </div>
     </div>
   </div>
+</div>
+
+<div class="row section features">
+  <h4>Regenerative transient analysis</h4>
+  <p>One of the most useful analysis that can be conducted on a Petri Net is the <i>regenerative transient analysis</i>.</p>
+  <p>The transient analysis is the analysis of the probabilities of being in a certain state at a certain moment in time, given that the process started from another given state. This analysis generates a three dimensional matrix, with time as the first dimension, the possible starting states as second dimension and the possible arrival states as third dimension.</p>
+  <p>Regenerative transient analysis indicates the transient analysis done on a generic Markov Regenerative Process (MPR). An MRP is a sthocastic process that, sooner or later, will certainly reach a regeneration (i.e. a moment in time where the past history of the process adds no information to the future probabilities).</p>
+  <p></p>
 </div>
