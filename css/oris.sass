@@ -143,6 +143,9 @@ img.tutorial-screenshot
   margin-left: auto
   margin-right: auto
 
+div.pn-example-row
+  margin-top: 40px
+
 @import url('http://fonts.googleapis.com/css?family=Raleway:400,200')
 
 .card-container
@@ -163,10 +166,10 @@ img.tutorial-screenshot
     position: relative
     right: 0
     top: 0
-    width: 300px
+    // width: 300px
     &:hover
       height: 450px
-      width: 300px
+      // width: 300px
       .cta-container
         display: inline
         margin-top: 380px
@@ -185,14 +188,23 @@ img.tutorial-screenshot
 
   .card_circle
     &.pn-timeout
-      background: url('/images/timeout.png') no-repeat center bottom
+      background: url('/images/tutorial/timeout.png') no-repeat center bottom
       background-size: 100%
     &.pn-queue
-      background: url('/images/queue.png') no-repeat center bottom
+      background: url('/images/tutorial/queue.png') no-repeat center bottom
       background-size: 65%
     &.pn-rej
-      background: url('/images/rej.png') no-repeat center bottom
+      background: url('/images/tutorial/rej.png') no-repeat center bottom
       background-size: 60%
+    &.pn-simple-gspn
+      background: url('/images/tutorial/simple_gspn.png') no-repeat center bottom
+      background-size: 60%
+    &.pn-rej-trivedi
+      background: url('/images/tutorial/rej_trivedi.png') no-repeat center bottom
+      background-size: 120%
+    &.pn-fischer
+      background: url('/images/tutorial/fischer.png') no-repeat center bottom
+      background-size: 140%
     // border-radius: 50%
     height: 400px
     margin-left: -75px
