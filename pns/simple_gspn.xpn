@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <tpn-editor>
   <tpn-entities>
-    <joint uuid="6fefd258-7d71-430b-aaf6-1f2d4421aa2b" x="874" y="196">
+    <joint uuid="6fefd258-7d71-430b-aaf6-1f2d4421aa2b" x="817" y="196">
       <features/>
       <properties/>
     </joint>
-    <joint uuid="7a676d11-70ec-446b-ae13-d6663e5cd913" x="519" y="196">
+    <joint uuid="7a676d11-70ec-446b-ae13-d6663e5cd913" x="573" y="196">
       <features/>
       <properties/>
     </joint>
-    <joint uuid="7b6f1801-184b-4b74-acf9-7f17e4f7d66a" x="519" y="560">
+    <joint uuid="7b6f1801-184b-4b74-acf9-7f17e4f7d66a" x="573" y="560">
       <features/>
       <properties/>
     </joint>
-    <joint uuid="8b383556-afb9-4098-8883-8192499bb211" x="874" y="560">
+    <joint uuid="8b383556-afb9-4098-8883-8192499bb211" x="819" y="560">
       <features/>
       <properties/>
     </joint>
@@ -31,30 +31,30 @@
         <property id="default.marking" marking="1"/>
       </properties>
     </place>
-    <place uuid="914824b1-2b21-4ca6-b460-24bccdf0a918" x="811" y="469">
+    <place uuid="914824b1-2b21-4ca6-b460-24bccdf0a918" x="765" y="469">
       <features/>
       <properties>
-        <property id="0.default.name" name="P4" satellite-x="773" satellite-y="464"/>
+        <property id="0.default.name" name="P4" satellite-x="727" satellite-y="464"/>
         <property id="default.marking" marking="0"/>
       </properties>
     </place>
-    <place uuid="e6d8b652-4691-4fe6-a3f3-1f1ec7c4fe62" x="581" y="469">
+    <place uuid="e6d8b652-4691-4fe6-a3f3-1f1ec7c4fe62" x="627" y="469">
       <features/>
       <properties>
-        <property id="0.default.name" name="P3" satellite-x="620" satellite-y="461"/>
+        <property id="0.default.name" name="P3" satellite-x="666" satellite-y="461"/>
         <property id="default.marking" marking="0"/>
       </properties>
     </place>
-    <transition rotation-angle="-1.5707963267948966" uuid="9998120e-1695-4a75-b144-8f8e32480571" x="811" y="378">
+    <transition rotation-angle="-1.5707963267948966" uuid="9998120e-1695-4a75-b144-8f8e32480571" x="758" y="378">
       <features>
         <feature id="transition.stochastic"/>
       </features>
       <properties>
-        <property id="0.default.name" name="t2" satellite-x="776" satellite-y="377"/>
+        <property id="0.default.name" name="t2" satellite-x="723" satellite-y="377"/>
         <property enabling-function="" id="10.default.enablingFunction"/>
         <property id="11.default.markingUpdate" marking-update=""/>
         <property id="12.default.resetTransitions" reset-transitions=""/>
-        <property id="transition.stochastic" priority="0" property-data-type="0.type.immediate" satellite-x="811" satellite-y="408" weight="1"/>
+        <property id="transition.stochastic" priority="0" property-data-type="0.type.immediate" satellite-x="758" satellite-y="408" weight="1"/>
       </properties>
     </transition>
     <transition rotation-angle="-1.5707963267948966" uuid="a0fba39d-d102-4be8-af49-51b57db8dc80" x="695" y="196">
@@ -69,40 +69,40 @@
         <property id="transition.stochastic" lambda="0.25" property-data-type="3.type.exponential" satellite-x="654" satellite-y="209"/>
       </properties>
     </transition>
-    <transition rotation-angle="-1.5707963267948966" uuid="b656fc6b-8be0-4a26-8ff2-81eb96b23d3b" x="581" y="378">
+    <transition rotation-angle="-1.5707963267948966" uuid="b656fc6b-8be0-4a26-8ff2-81eb96b23d3b" x="634" y="378">
       <features>
         <feature id="transition.stochastic"/>
       </features>
       <properties>
-        <property id="0.default.name" name="t1" satellite-x="618" satellite-y="379"/>
+        <property id="0.default.name" name="t1" satellite-x="671" satellite-y="379"/>
         <property enabling-function="" id="10.default.enablingFunction"/>
         <property id="11.default.markingUpdate" marking-update=""/>
         <property id="12.default.resetTransitions" reset-transitions=""/>
-        <property id="transition.stochastic" priority="0" property-data-type="0.type.immediate" satellite-x="581" satellite-y="408" weight="1"/>
+        <property id="transition.stochastic" priority="0" property-data-type="0.type.immediate" satellite-x="634" satellite-y="408" weight="1"/>
       </properties>
     </transition>
-    <transition rotation-angle="-1.5707963267948966" uuid="ca35e62f-47af-4385-a533-191bb23517b6" x="812" y="560">
+    <transition rotation-angle="-1.5707963267948966" uuid="ca35e62f-47af-4385-a533-191bb23517b6" x="765" y="560">
       <features>
         <feature id="transition.stochastic"/>
       </features>
       <properties>
-        <property id="0.default.name" name="T3" satellite-x="776" satellite-y="556"/>
+        <property id="0.default.name" name="T3" satellite-x="729" satellite-y="556"/>
         <property enabling-function="" id="10.default.enablingFunction"/>
         <property id="11.default.markingUpdate" marking-update=""/>
         <property id="12.default.resetTransitions" reset-transitions=""/>
-        <property id="transition.stochastic" lambda="1" property-data-type="3.type.exponential" satellite-x="776" satellite-y="573"/>
+        <property id="transition.stochastic" lambda="1" property-data-type="3.type.exponential" satellite-x="729" satellite-y="573"/>
       </properties>
     </transition>
-    <transition rotation-angle="-1.5707963267948966" uuid="dd6df23a-9c02-42fd-8798-6a588c5469da" x="581" y="560">
+    <transition rotation-angle="-1.5707963267948966" uuid="dd6df23a-9c02-42fd-8798-6a588c5469da" x="627" y="560">
       <features>
         <feature id="transition.stochastic"/>
       </features>
       <properties>
-        <property id="0.default.name" name="T2" satellite-x="617" satellite-y="556"/>
+        <property id="0.default.name" name="T2" satellite-x="663" satellite-y="556"/>
         <property enabling-function="" id="10.default.enablingFunction"/>
         <property id="11.default.markingUpdate" marking-update=""/>
         <property id="12.default.resetTransitions" reset-transitions=""/>
-        <property id="transition.stochastic" lambda="0.5" property-data-type="3.type.exponential" satellite-x="616" satellite-y="575"/>
+        <property id="transition.stochastic" lambda="0.5" property-data-type="3.type.exponential" satellite-x="662" satellite-y="575"/>
       </properties>
     </transition>
     <arc from="b656fc6b-8be0-4a26-8ff2-81eb96b23d3b" to="e6d8b652-4691-4fe6-a3f3-1f1ec7c4fe62" uuid="01021467-db57-446c-bf7d-13422e63ea64">
