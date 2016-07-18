@@ -9,7 +9,7 @@ title: Tutorials and examples
   <p>Once you have Oris downloaded (<a href="{{ site.oris_url }}">link here</a>), head to the download folder and unzip the Oris archive you just downloaded.</p>
   <p>Then, you can open the folder created and run Oris by simply running either <i>run.bat</i>, if you are on Windows, or <i>run.sh</i>, if you are on Linux or Mac.</p>
   <div class="alert alert-warning" role="alert">
-    <strong>Remember!</strong> Be sure to have the correct Java version installed, or Oris won't run.
+    <strong>Remember!</strong> Be sure to have at least Java 7 installed, or Oris won't run.
   </div>
 </div>
 
@@ -23,7 +23,7 @@ title: Tutorials and examples
   <p><img class="tutorial-screenshot" src="images/tutorial/rename_place.png"></p>
   <p>Now let's click <i>OK</i> to make the changes permanent.</p>
   <div class="alert alert-info" role="alert">
-    <strong>Protip:</strong> If you select the <img class="toolbar-btn" src="images/tutorial/select_btn.png"> button, you can drag the place's name for a better readability.
+    <strong>Protip:</strong> If you select the <img class="toolbar-btn" src="images/tutorial/select_btn.png"> button you'll enter in "selection mode" and be able, for example, to drag the place's name for a better readability.
   </div>
   <p>With the same method we've just seen, let's add four more places: <i>sent</i>, <i>received</i> and <i>timedOut</i>, with zero tokens, and <i>sending</i>, with one. For more clarity, the relative position of the places should be as shown below:</p>
   <p><img class="tutorial-screenshot" src="images/tutorial/all_places_added.png"></p>
@@ -46,13 +46,13 @@ title: Tutorials and examples
   <p>Finally, we need a last IMM transition, between <i>sent</i> and <i>received</i>. This last transition, to be called <i>success</i>, should have two incoming arcs, one from <i>sent</i> and one from <i>sending</i>, and an outgoing one, towards <i>received</i>.</p>
   <p>If done properly, the final result should be as follows:</p>
   <p><img class="tutorial-screenshot" src="images/tutorial/timeout_final.png"></p>
-  <p>The Petri Net is now completed and is ready to be used for various analysis.</p>
+  <p>The Petri Net is now completed and ready to be used for various analyses.</p>
   <p>Remember to save the Petri Net before closing, by clicking the <img class="toolbar-btn" src="images/tutorial/save_btn.png"> button, if you want to reuse the net later. This process will generate a file in XPN format that contains the Petri Net description.</p>
 </div>
 
 <div class="row section features">
-  <h4>Some example PNs</h4>
-  <p>You can download and open the following example PNs in Oris to experiment a bit around and learn how to do different kinds of analysis.</p>
+  <h4>Some example STPNs</h4>
+  <p>You can download and open the following example Stochastic Time Petri Nets (STPNs) in Oris to experiment a bit around and learn how to do different kinds of analysis.</p>
   <div class="row pn-example-row">
     <div class="col-sm-6 col-md-4 card-container">
       <div class="card transition">
