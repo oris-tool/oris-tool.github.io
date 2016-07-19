@@ -174,7 +174,7 @@ title: Tutorials and examples
 </div>
 
 <div id="sidebar-menu" class="col-md-1 hidden-xs hidden-sm">
-  <ul class="main-menu nav nav-stacked affix">
+  <ul class="main-menu nav nav-stacked">
   </ul>
 </div>
 
@@ -194,5 +194,20 @@ title: Tutorials and examples
     var shiftWindow = function() { scrollBy(0, -70) };
     if (location.hash) shiftWindow();
     window.addEventListener("hashchange", shiftWindow);
+  });
+
+  $(function () {
+    var sidebar = $('#sidebar-menu .main-menu');
+    var top = sidebar.offset().top - 70;
+    console.log(top);
+    
+    $(window).scroll(function (event) {
+      var y = $(this).scrollTop();
+      if (y >= top) {
+        sidebar.addClass('sidebar-fixed');
+      } else {
+        sidebar.removeClass('sidebar-fixed');
+      }
+    });
   });
 </script>
