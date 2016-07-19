@@ -7,7 +7,7 @@ title: Tutorials and examples
   <div class="row section features">
     <h1 id="par-up-and-running">Getting Oris up and running</h1>
     <p>First of all, let's learn how to get Oris up and running.</p>
-    <p>Once you have Oris downloaded (<a href="{{ site.oris_url }}">link here</a>), head to the download folder and unzip the Oris archive you just downloaded.</p>
+    <p>Once you have Oris downloaded (<a href="{{ site.oris_url }}">link</a>), head to the download folder and unzip the Oris archive you just downloaded.</p>
     <p>Then, you can open the folder created and run Oris by simply running either <i>run.bat</i>, if you are on Windows, or <i>run.sh</i>, if you are on Linux or Mac.</p>
     <div class="alert alert-warning" role="alert">
       <strong>Remember!</strong> Be sure to have at least Java 7 installed, or Oris won't run.
@@ -135,7 +135,13 @@ title: Tutorials and examples
     <h2 id="subpar-possible-actions">Possible actions</h2>
     <p>As you click <i>OK</i>, you'll see a new panel open and the new analysis running. When the analysis is completed (shouldn't take long) you'll have on screen something like that:</p>
     <p><img class="tutorial-screenshot" src="images/tutorial/reg_trans_done.png"></p>
-    <p>Let's talk about the various buttons we have on this panel: first of all, you can modify the analysis by clicking on the <img class="toolbar-btn" src="images/tutorial/modif_analysis_btn.png"> button, change the values of the parameters you want to update, click <i>OK</i> and finally relaunch the analysis with the new values with the <img class="toolbar-btn" src="images/tutorial/relaunch_analysis_btn.png">; the <img class="toolbar-btn" src="images/tutorial/update_model_btn.png"> button is needed if, after a completed analysis, we want to modify the model and relaunch the analysis: in fact, if we just modify the model and click <img class="toolbar-btn" src="images/tutorial/relaunch_analysis_btn.png">, the analysis will be done on the unmodified version of the model, so in order to force the analysis engine to consider the new changes we need first to click on the <img class="toolbar-btn" src="images/tutorial/update_model_btn.png"> button; by clicking on the <img class="toolbar-btn" src="images/tutorial/analysis_log_btn.png"> you can view the log of the analysis, where are logged all the main operations executed or, in case of errors, the possible nature and cause of such error(s); finally, the <img class="toolbar-btn" src="images/tutorial/analysis_results_btn.png"> button is used to show the results of the analysis, in both a numerical and a graphical way.</p>
+    <p>Let's talk about the various buttons we have on this panel:</p>
+    <ul>
+      <li>first of all, you can modify the analysis by clicking on the <img class="toolbar-btn" src="images/tutorial/modif_analysis_btn.png"> button, change the values of the parameters you want to update, click <i>OK</i> and finally relaunch the analysis with the new values with the <img class="toolbar-btn" src="images/tutorial/relaunch_analysis_btn.png">;</li>
+      <li>the <img class="toolbar-btn" src="images/tutorial/update_model_btn.png"> button is needed if, after a completed analysis, we want to modify the model and relaunch the analysis: in fact, if we just modify the model and click <img class="toolbar-btn" src="images/tutorial/relaunch_analysis_btn.png">, the analysis will be done on the unmodified version of the model, so in order to force the analysis engine to consider the new changes we need first to click on the <img class="toolbar-btn" src="images/tutorial/update_model_btn.png"> button;</li>
+      <li>by clicking on the <img class="toolbar-btn" src="images/tutorial/analysis_log_btn.png"> you can view the log of the analysis, where are logged all the main operations executed or, in case of errors, the possible nature and cause of such error(s);</li>
+      <li>finally, the <img class="toolbar-btn" src="images/tutorial/analysis_results_btn.png"> button is used to show the results of the analysis, in both a numerical and a graphical way.</li>
+    </ul>
     <h2 id="subpar-numerical-results">Numerical results</h2>
     <p>Let's click on the <img class="toolbar-btn" src="images/tutorial/analysis_results_btn.png"> button and try to explain the results panel a bit more in detail.</p>
     <p><img class="tutorial-screenshot" src="images/tutorial/reg_trans_results.png"></p>
