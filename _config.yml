@@ -1,4 +1,4 @@
 name: Oris Tool
 description: Analysis of timed and stochastic Petri nets
 exclude: [Gemfile, Gemfile.lock]
-oris_url: ./releases/oris-2.0.15.zip
+oris_url: ./releases/oris-2.0.16.zip
