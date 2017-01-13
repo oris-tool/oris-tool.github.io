@@ -10,7 +10,7 @@ title: Tutorials and examples
     <p>Once you have Oris downloaded (<a href="{{ site.oris_url }}">link</a>), head to the download folder and unzip the Oris archive you just downloaded.</p>
     <p>Then, you can open the folder created and run Oris by simply running either <i>run.bat</i>, if you are on Windows, or <i>run.sh</i>, if you are on Linux or Mac.</p>
     <div class="alert alert-warning" role="alert">
-      <strong>Remember!</strong> Be sure to have at least Java 7 installed, or Oris won't run.
+      <strong>Remember!</strong> Be sure to have at least Java 8 installed, or Oris won't run.
     </div>
   </div>
 
@@ -166,16 +166,11 @@ title: Tutorials and examples
     <p>Let's have a look now at the GSPN analysis, another feature offered by Oris.</p>
     <p>The GSPN analysis is an analysis just like the one we just saw, but for GSPN networks. A GSPN (Generalized Stochastic Petri Net) is a Petri Net with only immediate and exponential transitions.</p>
     <h2 id="subpar-new-gspn-analysis">Transient and steady-state analysis</h2>
-    <p>Let's use, for this example, the net "Simple GSPN" from the examples (<a href="/pns/simple_gspn.xpn">link</a>). Once you have it downloaded and open in Oris, you can click on the <img class="toolbar-btn" src="images/tutorial/gspn_analysis_btn.png"> button. The various parameters in the analysis panel are exactly the same the ones from the regenerative analysis we already examined, with the only exception of <i>Extended regenerations</i> being replaced by <i>Compute steady state</i>: while extended regenerations are not supported by the GSPN analysis, by checking this new option we can have the steady-state probabilities (i.e. as time goes to infinity) of the model calculated as a bonus and logged in the log of the analysis results.</p>
+    <p>Let's use, for this example, the net "Simple GSPN" from the examples (<a href="/pns/simple_gspn.xpn">link</a>). Once you have it downloaded and open in Oris, you can click on the <img class="toolbar-btn" src="images/tutorial/gspn_analysis_btn.png"> button. The various parameters in the analysis panel are exactly the same ones from the regenerative analysis we already examined, with the only exception of <i>Extended regenerations</i> being replaced by <i>Compute steady state</i>: while extended regenerations are not supported by the GSPN analysis, by checking this new option we can have the steady-state probabilities (i.e. as time goes to infinity) of the model calculated as a bonus and logged in the log of the analysis results.</p>
     <p>For this example, let's choose a <i>Time limit</i> of 20 and leave the rest of the parameters with their default values. Once the computation is complete, we can see that, once again, the results are shown in the same manner of the regenerative analysis. If we open the graph tab we should see something like the following graph:</p>
     <p><img class="tutorial-screenshot" src="images/tutorial/gspn_analysis_graph.png"></p>
     <p>After a first transitory phase, we can see that the model reaches a steady state pretty soon. Clearly the probabilities for <i>P3</i> and <i>P4</i> are lower, since the execution flow of the model is split between the two after <i>P2</i>, with the probability of being in <i>P3</i> higher since the rate of its transition is lower than <i>P4</i>'s transition. Also we notice that <i>P2</i> is not listed, being a vanishing state. If you are interested in knowing the exact value of the steady-state probabilities for these three tangible states, you can rerun the analysis with <i>Compute steady</i> state checked and then open the log: the result should be 0.73 for <i>P1</i>, 0.18 for <i>P3</i> and 0.09 for <i>P4</i>, as you can see from this screenshot of the log:</p>
     <p><img class="tutorial-screenshot" src="images/tutorial/gspn_log.png"></p>
-    <h2 id="subpar-choosing-truncation">Choosing the right truncation</h2>
-    <p>Beware that truncation in uniformization is presently set as a configuration option of the analysis indepenendtly of the uniformized rate and the time horizon of the analysis. As a consequence, when the time exceeds the limit depending on the uniformized rate, results lose validity, which can be observed as probabilities run to zero. This can be observed, for example, if we change the rate of the transition <i>T1</i> to 10 and rerun the analysis:</p>
-    <p><img class="tutorial-screenshot" src="images/tutorial/gspn_analysis_zero_graph.png"></p>
-    <p>Automated threshold selection based on the Fox & Glynn method is already implemented and will soon be integrated in Oris. In the meantime, the workaround consists in reducing the <i>Allowed error</i> value until the desired level of aproximation is reached. If, for example, we rerun the last analysis adding four zeros in the <i>Allowed error</i> field, we can see that the transient probabilities degenerate to zero later, as shown below:</p>
-    <p><img class="tutorial-screenshot" src="images/tutorial/gspn_analysis_zero_lower_error_graph.png"></p>
   </div>
 </div>
 
@@ -206,7 +201,7 @@ title: Tutorials and examples
     var sidebar = $('#sidebar-menu .main-menu');
     var top = sidebar.offset().top - 70;
     console.log(top);
-    
+
     $(window).scroll(function (event) {
       var y = $(this).scrollTop();
       if (y >= top) {
