@@ -114,9 +114,12 @@ title: Tutorials and examples
 
   <div class="row section features">
     <h1 id="par-reg-trans">Regenerative transient analysis</h1>
-    <p>One of the most useful analysis that can be conducted on a Petri Net is the <i>regenerative transient analysis</i>.</p>
+    <p>One of the most useful analysis that can be conducted on a Petri Net is the <i>regenerative transient analysis</i>. This section, in particular, will cover a specific method of this kind of analysis: the <i>regenerative transient analysis with stochastic state classes</i>.</p>
     <p>The transient analysis is the analysis of the probabilities of being in a certain state at a certain moment in time, given that the process started from another given state. This analysis generates a matrix, with time as the first dimension and the possible arrival states, starting from the initial marking, as second dimension.</p>
     <p>Regenerative transient analysis indicates the transient analysis done on a generic Markov Regenerative Process (MPR). An MRP is a sthocastic process that, sooner or later, will certainly reach a regeneration (i.e. a moment in time where the past history of the process adds no information to the future probabilities).</p>
+    <div class="alert alert-warning" role="alert">
+      <strong>Keep in mind!</strong> Regenerative transient analysis with stochastic state classes only works under the assumption of <i>bounded regeneration</i>, i.e. the condition when there are no cycles without regenerations.
+    </div>
     <h2 id="subpar-new-regen-trans-analysis">Starting a new analysis</h2>
     <p>In this section we'll analyze the "Trasmission with Timeout" model we build in the previous section. If you don't have the model open in Oris (or you didn't save it) you can download it from the examples (<a href="/pns/timeout.xpn">link</a>) and open it again.</p>
     <p>Once we have the model back up on the main pane, we can start a new regenerative transient analysis by clicking the <img class="toolbar-btn" src="images/tutorial/reg_trans_btn.png"> button. We'll notice a new panel, like the one below, with several parameter fields:</p>
@@ -183,7 +186,20 @@ title: Tutorials and examples
     <p>It is worth noticing that the place <i>reading1</i> is not included as it is a vanishing state, providing no additional probability to the reward. After the analysis is complete, we can open the result panel to see that the steady-state probability of being in the critical section <i>cs1</i> is <i>0.075</i>, while the probability of being waiting to enter in it is <i>0.131</i>. If the analysis is rerun including <i>idle1</i> in the rewards, it can be seen how the remaining probability is concentrated in <i>idle1</i> (<i>0.751</i> circa), meaning that most of the time a process is in idle mode, i.e. not needing to enter the critical section.</p>
     <p>This PN representing the Fischer's protocol is very useful as a benchmark since many different analysis can be achieved using the Oris regenerative steady-state analysis. A couple of examples can be to compute the occupation of the critical section by any process (using "<i>cs1+cs2+cs3</i>" as reward) or to evaluate how the latency of a single process ("<i>ready1+writing+waiting1</i>") varies when the characterising parameters of the protocol, such as waiting or writing time, are changed.</p>
   </div>
+
+  <div class="row section features">
+    <h1 id="par-enabl-rest">Analysis under enabling restriction</h1>
+    <p>Enabling restriction is the condition when, for a certain state of a PN, at most one GEN transition is enabled. If for every state of a given PN the enabling restriction is valid, the PN is then said to be <i>under enabling restriction</i>.</p>
+    <p>Analysis under enabling restriction is a different method to perform regenerative transient analysis, similar to the method based on stochastic state classes. The advantage is that, when analysis with stochastic state classes requires the condition of bounded regeneration to be met in order to perform it, analysis under enabling restriction requires a different condition. If we encounter a PN where bounded regeneration is not valid but enabling restriction is, it would still be analisable thanks to this new analysis.</p>
+    <p>An example PN can be "Software Rejuvenation 2", from the examples section: in this model, the bounded regeneration is not valid (transition <i>tClock</i> stays enabled while the cycle of EXP transitions <i>tFProb-tDown-tUp</i> can happen infinite times) but the enabling restriction is (trivially demonstrated, since only one GEN is present in the entire model).</p>
+    <p>In order to start a new analysis we can click on the <img class="toolbar-btn" src="images/tutorial/reg_enabl_rest_btn.png"> button. For this analysis, parameters are as usual, except the <i>allowed error</i> which, in this case, represents the error allowed during the numerical evaluation of the embedded CTMC transient probabilities through uniformization, and not the final error on the MRP transiuent probabilities.</p>
+    <p>For the sake of this example, let's choose a <i>time limit</i> of 400 and a <i>discretization step</i> of 10. The following picture shows the graphical results of this analysis:</p>
+    <p><img class="tutorial-screenshot" src="images/tutorial/enabl_rest_analysis.png"></p>
+    <p>From the graphical results we can see how transient probability curves vary smoothly until the instant t=300, where many spikes are present: this is due the firing of the only GEN transition present, <i>tClock</i>, which is set as a DET transition with delay 300.</p>
+  </div>
 </div>
+
+
 
 <div id="sidebar-menu" class="col-md-1 hidden-xs hidden-sm">
   <ul class="main-menu nav nav-stacked">
