@@ -1,0 +1,90 @@
+---
+layout: default
+title: Documentation
+---
+
+<div id="static-content" class="col-md-11">
+  <div class="row section features">
+    <h1 id="par-syntax">Syntax</h1>
+    <h2 id="subpar-expol-syntax">PDF syntax</h2>
+    <p>Oris accepts the following expressions:</p>
+    <pre>
+	EXPOLY := TERM { '+' TERM }
+	TERM   := NUMBER { '*' XTERM }
+	XTERM  := 'x' | 'x^'INT | 'Exp[' NUMBER 'x]'
+	NUMBER := any valid BigDecimal string, e.g., '-1.2'
+	INT    := any positive Integer string, e.g., '2'
+    </pre>
+    <p>So, these are valid expressions:</p>
+    <pre>
+	1
+	0.5 + 0.5
+	0.5 + -0.5
+	0.5 + -0.5*x
+	0.5 + -0.5 * x
+	0.5 + -0.5 * Exp[1.0 x]
+	0.5 + -0.5*x*Exp[ -1.0 x]
+	0.5 + -0.5 * x * Exp[ 2 x]
+	0.5 + -0.5 * x * Exp[ 2 x] * x^2
+	0.5 + -0.5 * x^2 * Exp[ 2 x] + x
+     </pre>
+     <p>... but these are not:</p>
+     <pre>
+	0.5 - 0.5
+	0.5 + - 0.5
+	0.5 + -0.5 * Exp[1.0 x ]
+	0.5 + -0.5 * exp[1.0 x]
+	(0.5 + 0.5)
+     </pre>
+     <h2 id="subpar-reward-syntax">Reward syntax</h2>
+  </div>
+
+  <div class="row section features">
+    <h1 id="par-api">Oris API</h1>
+    <h2 id="subpar-download-api">Download the library</h2>
+    <p>Prova 2</p>
+    <h2 id="subpar-api-examples">Usage examples</h2>
+    <p>Prova 3</p>
+  </div>
+</div>
+
+
+
+<div id="sidebar-menu" class="col-md-1 hidden-xs hidden-sm">
+  <ul class="main-menu nav nav-stacked">
+  </ul>
+</div>
+
+<script type="text/javascript">
+  $(document).ready(function() {
+    var sidebarMainMenu = $('#sidebar-menu .main-menu');
+    var staticContent = $('#static-content');
+    staticContent.find('h1').each(function() {
+      sidebarMainMenu.append('<li id="'+ $(this).attr('id') + '-menu"><a href="#' + $(this).attr('id') + '">' + $(this).html() + '</li>');
+      title = sidebarMainMenu.find('#' + $(this).attr('id'));
+    });
+    staticContent.find('h2').each(function() {
+      prevTitle = sidebarMainMenu.find('#' + $(this).prevAll('h1').first().attr('id') + '-menu');
+      prevTitle.not(":has(ul)").append('<ul class="sub-menu"></ul>');
+      prevTitle.find('.sub-menu').append('<li id="'+ $(this).attr('id') + '-menu"><a href="#' + $(this).attr('id') + '">' + $(this).html() + '</li>');
+    });
+    var shiftWindow = function() { scrollBy(0, -70) };
+    if (location.hash) shiftWindow();
+    window.addEventListener("hashchange", shiftWindow);
+  });
+
+  $(function () {
+    var sidebar = $('#sidebar-menu .main-menu');
+    var top = sidebar.offset().top - 70;
+    console.log(top);
+
+    $(window).scroll(function (event) {
+      var y = $(this).scrollTop();
+      if (y >= top) {
+        sidebar.addClass('sidebar-fixed');
+      } else {
+        sidebar.removeClass('sidebar-fixed');
+      }
+    });
+  });
+</script>
