@@ -42,9 +42,40 @@ title: Documentation
   <div class="row section features">
     <h1 id="par-api">Oris API</h1>
     <h2 id="subpar-download-api">Download the library</h2>
-    <p>Prova 2</p>
-    <h2 id="subpar-api-examples">Usage examples</h2>
-    <p>Prova 3</p>
+    <p>The java library can be downloaded from here:</p>
+    <a class="btn btn-lg btn-primary" href="./api/sirio-1.1.0-proguard.jar" onclick="_gaq.push(['_trackEvent', 'Downloads', 'get', 'api-1.1.0']);" download="">
+	<span class="glyphicon glyphicon-download" style="margin-right:0.5em;"></span>Download</a>
+    <h2 id="subpar-api-examples">Building a Petri net</h2>
+    <p>The first step is the definition of a Petri net. You can build by hand or using the "Export as Java source" function of the tool. Suppose that you want to build the net shown below:</p>
+    <p><img class="documentation-screenshot" src="images/documentation/examplePnBuilding.png"></p>
+    <p>This net can be defined as follow:</p>
+    <pre>
+    PetriNet net = new PetriNet();
+    Marking marking = new Marking();
+
+    //Defining nodes
+    Place p0 = net.addPlace("p0");
+    Place p1 = net.addPlace("p1");
+    Transition t0 = net.addTransition("t0");
+    Transition t1 = net.addTransition("t1");
+
+    //Defining arcs
+    net.addPrecondition(p0, t0);
+    net.addPostcondition(t0, p1);
+    net.addPrecondition(p1, t1);
+    net.addPostcondition(t1, p0);
+
+    //Defining features
+    t0.addFeature(StochasticTransitionFeature.newExponentialInstance(new BigDecimal("1")));
+    t0.addFeature(new RateExpressionFeature("1"));
+    t1.addFeature(StochasticTransitionFeature.newUniformInstance(new OmegaBigDecimal("0"), new OmegaBigDecimal("1")));
+
+    //Defining marking
+    marking.setTokens(p0, 1);
+    marking.setTokens(p1, 0);
+    </pre>
+    <p>Otherwise you can draw the net using the user interface and export it as Java Source as shown below:</p>
+    <p><img class="documentation-screenshot" src="images/documentation/exportJavaExample.png"></p>
   </div>
 </div>
 
