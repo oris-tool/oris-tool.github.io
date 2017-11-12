@@ -45,7 +45,7 @@ title: Documentation
     <p>The java library can be downloaded from here:</p>
     <a class="btn btn-lg btn-primary" href="./api/sirio-1.1.0-proguard.jar" onclick="_gaq.push(['_trackEvent', 'Downloads', 'get', 'api-1.1.0']);" download="">
 	<span class="glyphicon glyphicon-download" style="margin-right:0.5em;"></span>Download</a>
-    <h2 id="subpar-api-examples">Building a Petri net</h2>
+    <h2 id="subpar-api-examples-build">Building a Petri net</h2>
     <p>The first step is the definition of a Petri net. You can build by hand or using the "Export as Java source" function of the tool. Suppose that you want to build the net shown below:</p>
     <p><img class="documentation-screenshot" src="images/documentation/examplePnBuilding.png"></p>
     <p>This net can be defined as follow:</p>
@@ -76,6 +76,111 @@ title: Documentation
     </pre>
     <p>Otherwise you can draw the net using the user interface and export it as Java Source as shown below:</p>
     <p><img class="documentation-screenshot" src="images/documentation/exportJavaExample.png"></p>
+
+    <h2 id="subpar-api-examples-transient-regen">Regenerative transient analysis using stochastic state classes</h2>
+    <p>To evaluate the transient probabilities of an STPN using regenerative transient analysis through stochastic state classes, and using extended regeneration, use the following snnipper of code:</p>
+    <pre>
+        PetriNet pn = new PetriNet();
+        Marking m = new Marking();
+        build(pn, m);//Here build your Petri net and marking 
+        
+        //Configuration
+        DeterministicEnablingState initialRegeneration = new DeterministicEnablingState(m, pn);
+        BigDecimal timeLimit = new BigDecimal(""+10); //Is the "time limit" of the oris tool interface
+        double discretizationStep = 0.1;//Is the discretization step of the oris tool interface
+        BigDecimal allowedError = BigDecimal.ZERO; //The parameter is "Allowed error" of the Oris tool interface
+        MarkingCondition absorbingCondition = MarkingCondition.NONE; //Absorbing condition, "Stop condition" of Oris tool interface
+        String reward = "p0";
+        boolean cumulativeReward = false;
+        
+        //Analysis step 1: state space exploration
+        RegenerativeTransientAnalysis<DeterministicEnablingState> analysis = RegenerativeTransientAnalysis.compute(
+                pn,
+                initialRegeneration, 
+                new DeterministicEnablingStateBuilder(pn, true),
+                new EnablingSyncsEvaluator(), 
+                new TruncationPolicy(allowedError, new OmegaBigDecimal(timeLimit)), 
+                absorbingCondition, 
+                false,
+                false, 
+                null, 
+                null, 
+                false);
+                
+       //Analysis step 2: find kernels and solve discretized markov renewal equations
+       TransientSolution<DeterministicEnablingState, Marking> solution = analysis.solveDiscretizedMarkovRenewal(
+                timeLimit, 
+                new BigDecimal(""+discretizationStep),
+                MarkingCondition.ANY,
+                false, 
+                null, 
+                null);
+        
+       //Analysis step 3: evaluauting reward 
+       TransientSolution<DeterministicEnablingState, RewardRate> rewards = 
+                TransientSolution.computeRewards(cumulativeReward, solution, reward);
+        
+       //Accessing result
+       int rIndex = 0;
+       for (RewardRate singleReward : rewards.getColumnStates()) {
+            System.out.println("Solution for reward " + singleReward );
+            for (int t = 0; t < solution.getSamplesNumber(); t++) {
+                System.out.println("t= " + (t * solution.getStep().doubleValue()) + " --> " + solution.getSolution()[t][0][rIndex] );
+            }
+            rIndex++;
+       }
+    </pre>
+    <p>If instead you don't want to use extended regeneration, you can use the following:</p>
+    <pre>
+        PetriNet pn = new PetriNet();
+        Marking m = new Marking();
+        build(pn, m);//Here build your Petri net and marking
+        
+        //Configuration
+        BigDecimal timeLimit = new BigDecimal(""+10); //Is the "time limit" of the Oris tool interface
+        double discretizationStep = 0.1;//Is the discretization step of the Oris tool interface
+        BigDecimal allowedError = BigDecimal.ZERO; //The parameter is "Allowed error" of the Oris tool interface
+        MarkingCondition absorbingCondition = MarkingCondition.NONE; //Absorbing condition, "Stop condition" of Oris tool interface
+        String reward = "p0";
+        boolean cumulativeReward = false;
+        
+        //Analysis step 1: state space exploration
+        RegenerativeTransientAnalysis<Marking> analysis = RegenerativeTransientAnalysis.compute(
+                pn,
+                m, 
+                new NewlyEnablingStateBuilder(pn, true), 
+                new NewlyEnablingEvaluator(),
+                new TruncationPolicy(allowedError, new OmegaBigDecimal(timeLimit)), 
+                absorbingCondition,
+                false,
+                false, 
+                null, 
+                null, 
+                false);
+                
+       //Analysis step 2: find kernels and solve discretized markov renewal equations
+       TransientSolution<Marking, Marking> solution = analysis.solveDiscretizedMarkovRenewal(
+                timeLimit, 
+                new BigDecimal(""+discretizationStep),
+                MarkingCondition.ANY,
+                false, 
+                null, 
+                null);
+        
+       //Analysis step 3: evaluauting reward 
+       TransientSolution<Marking, RewardRate> rewards = 
+                TransientSolution.computeRewards(cumulativeReward, solution, reward);
+        
+       //Accessing result
+        int rIndex = 0;
+        for (RewardRate singleReward : rewards.getColumnStates()) {
+            System.out.println("Solution for reward " + singleReward );
+            for (int t = 0; t < solution.getSamplesNumber(); t++) {
+                System.out.println("t= " + (t * solution.getStep().doubleValue()) + " --> " + solution.getSolution()[t][0][rIndex] );
+            }
+            rIndex++;
+        }
+    </pre>
   </div>
 </div>
 
