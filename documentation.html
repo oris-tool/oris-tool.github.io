@@ -7,7 +7,7 @@ title: Documentation
   <div class="row section features">
     <h1 id="par-syntax">Syntax</h1>
     <h2 id="subpar-expol-syntax">PDF Expolynomial syntax</h2>
-    <p>Oris allows to define the probability density function of a transition time to fire through expolynimial. The syntax to express expression is the following:</p>
+    <p>Oris allows to define the probability density function of a transition time to fire through expolynomial. The syntax to express expression is the following:</p>
     <pre>
 	EXPOLY := TERM { '+' TERM }
 	TERM   := NUMBER { '*' XTERM }
@@ -31,7 +31,7 @@ title: Documentation
      <p>These are examples of not valid expressions:</p>
      <pre class="documentation-wrong-code">
 	0.5 - 0.5
-	0.5 + - 0.5
+        0.5 + - 0.5
 	0.5 + -0.5 * Exp[1.0 x ]
 	0.5 + -0.5 * exp[1.0 x]
 	(0.5 + 0.5)
