@@ -6,8 +6,8 @@ title: Documentation
 <div id="static-content" class="col-md-11">
   <div class="row section features">
     <h1 id="par-syntax">Syntax</h1>
-    <h2 id="subpar-expol-syntax">PDF syntax</h2>
-    <p>Oris accepts the following expressions:</p>
+    <h2 id="subpar-expol-syntax">PDF Expolynomial syntax</h2>
+    <p>Oris allows to define the probability density function of a transition time to fire through expolynimial. The syntax to express expression is the following:</p>
     <pre>
 	EXPOLY := TERM { '+' TERM }
 	TERM   := NUMBER { '*' XTERM }
@@ -15,7 +15,7 @@ title: Documentation
 	NUMBER := any valid BigDecimal string, e.g., '-1.2'
 	INT    := any positive Integer string, e.g., '2'
     </pre>
-    <p>So, these are valid expressions:</p>
+    <p>So, these are examples of valid expressions:</p>
     <pre>
 	1
 	0.5 + 0.5
@@ -28,15 +28,18 @@ title: Documentation
 	0.5 + -0.5 * x * Exp[ 2 x] * x^2
 	0.5 + -0.5 * x^2 * Exp[ 2 x] + x
      </pre>
-     <p>... but these are not:</p>
-     <pre>
+     <p>These are examples of not valid expressions:</p>
+     <pre class="documentation-wrong-code">
 	0.5 - 0.5
 	0.5 + - 0.5
 	0.5 + -0.5 * Exp[1.0 x ]
 	0.5 + -0.5 * exp[1.0 x]
 	(0.5 + 0.5)
      </pre>
+     <p>Note that the PDF measure on the support must be 1; ORIS does not check this at the moment, so be sure to normalize PDFs.</p>
+     <p>Also, be careful with expolynomial terms of high degree such as "Exp[1.0 x]*x^1000": internally integration by parts is used, so these generate several terms in successor classes during the analysis.</p>
      <h2 id="subpar-reward-syntax">Reward syntax</h2>
+     <p>TBD<p>
   </div>
 
   <div class="row section features">
