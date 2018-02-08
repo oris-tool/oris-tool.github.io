@@ -1,0 +1,3 @@
+[submodule "apidoc"]
+	path = apidoc
+	url = git@github.com:oris-tool/sirio-javadoc.git
