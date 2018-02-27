@@ -47,6 +47,7 @@
           <ul class="nav navbar-nav">
             <li><a href="/">Home</a></li>
             <li><a href="/tutorial">Tutorial</a></li>
+            <li><a href="/sirio">Sirio Library</a></li>
             <li><a href="/publications">Publications</a></li>
             <li><a href="/contributors">Contributors</a></li>
           </ul>
@@ -56,10 +57,10 @@
 
     <div class="container">
       <div class="header">
-	      <div class="col-lg-4 logo">
+        <div class="col-lg-4 logo">
           <img src="/images/unifi.png" class="responsive-image" alt="Università di Firenze">
         </div>
-	      <div class="col-lg-8 lab">
+        <div class="col-lg-8 lab">
           <a href="http://stlab.dinfo.unifi.it">Software Science and Technology Lab</a>
         </div>
       </div>
@@ -75,33 +76,33 @@
 
     <script type="text/javascript">
 
-      $(document).ready(function() {
-        $("body").one("mousemove", function() {
-          setTimeout(function() {
-            $("a.scrambled" ).each(function() {
-              var x = $(this).attr('href');
-              var y = '';
-              for (i=0; i<x.length; ++i)
-                y += String.fromCharCode(6^x.charCodeAt(i));
-              $(this).attr('href', y);
-            });
-          }, 500);
-        });
-      });
+     $(document).ready(function() {
+       $("body").one("mousemove", function() {
+         setTimeout(function() {
+           $("a.scrambled" ).each(function() {
+             var x = $(this).attr('href');
+             var y = '';
+             for (i=0; i<x.length; ++i)
+               y += String.fromCharCode(6^x.charCodeAt(i));
+             $(this).attr('href', y);
+           });
+         }, 500);
+       });
+     });
 
-      $(document).ready(function() {
-        $('a[href="' + this.location.pathname + '"]').parent().addClass('active');
-      });
+     $(document).ready(function() {
+       $('a[href="' + this.location.pathname + '"]').parent().addClass('active');
+     });
 
-      var _gaq = _gaq || [];
-      _gaq.push(['_setAccount', 'UA-44054892-1']);
-      _gaq.push(['_trackPageview']);
+     var _gaq = _gaq || [];
+     _gaq.push(['_setAccount', 'UA-44054892-1']);
+     _gaq.push(['_trackPageview']);
 
-      (function() {
-        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-      })();
+     (function() {
+       var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+       ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+       var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+     })();
 
     </script>
 
