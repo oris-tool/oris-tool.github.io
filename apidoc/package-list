@@ -15,6 +15,8 @@ org.oristool.math.expression
 org.oristool.math.function
 org.oristool.models
 org.oristool.models.gspn
+org.oristool.models.gspn.chains
+org.oristool.models.gspn.reachability
 org.oristool.models.pn
 org.oristool.models.stpn
 org.oristool.models.stpn.onegen
