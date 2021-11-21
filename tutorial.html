@@ -1,0 +1,241 @@
+---
+layout: default
+title: Tutorials and examples
+---
+
+<div id="static-content" class="col-md-11">
+  <div class="row section features">
+    <h1 id="par-up-and-running">Getting Oris up and running</h1>
+    <p>First of all, let's learn how to get Oris up and running.</p>
+    <p>Once you have Oris downloaded (<a href="{{ site.oris_url }}">link</a>), head to the download folder and unzip the Oris archive you just downloaded.</p>
+    <p>Then, you can open the folder created and run Oris by simply running either <i>run.bat</i>, if you are on Windows, or <i>run.sh</i>, if you are on Linux or Mac.</p>
+    <div class="alert alert-warning" role="alert">
+      <strong>Remember!</strong> Be sure to have at least Java 11 installed, or Oris won't run.
+    </div>
+  </div>
+
+  <div class="row section features">
+    <h1 id="par-network-creation">Simple network creation</h1>
+    <p>Now that we have Oris working and running we can start learning how to create our very first Petri Net with Oris following a simple example. The example Petri Net we're going to build will model a simple transmission with timeout on a lossy channel.</p>
+    <h2 id="subpar-new-network">New network creation</h2>
+    <p>The very first step is to create a new empty net by clicking the button <img class="toolbar-btn" src="/images/tutorial/new_btn.png"> from the toolbar. Alternatively, you can click <i>File</i> → <i>New</i>, from the menu, or use the shortcut <kbd><kbd>Ctrl</kbd> + <kbd>N</kbd></kbd>.</p>
+    <h2 id="subpar-adding-places">Adding places</h2>
+    <p>Let's start by adding a new place: to add a new place just click on the <img class="toolbar-btn" src="images/tutorial/place_btn.png"> button and then on a random position on the canvas. You can see a new place will spawn, as shown below:</p>
+    <p><img class="tutorial-screenshot" src="images/tutorial/first_place.png"></p>
+    <p>If we now double click on the place we just created, we can specify its name and the number of tokens in that place in the initial marking. Let's call it <i>ready</i> and give it one token, as shown below:</p>
+    <p><img class="tutorial-screenshot" src="images/tutorial/rename_place.png"></p>
+    <p>Now let's click <i>OK</i> to make the changes permanent.</p>
+    <div class="alert alert-info" role="alert">
+      <strong>Protip:</strong> If you select the <img class="toolbar-btn" src="images/tutorial/select_btn.png"> button you'll enter in "selection mode" and be able, for example, to drag the place's name for a better readability.
+    </div>
+    <p>With the same method we've just seen, let's add four more places: <i>sent</i>, <i>received</i> and <i>timedOut</i>, with zero tokens, and <i>sending</i>, with one. For more clarity, the relative position of the places should be as shown below:</p>
+    <p><img class="tutorial-screenshot" src="images/tutorial/all_places_added.png"></p>
+    <div class="alert alert-info" role="alert">
+      <strong>Protip 2:</strong> When you drag an element, Oris will show some helpful alignment lines.
+    </div>
+    <h2 id="subpar-adding-transitions">Adding transitions</h2>
+    <p>Now that we have all the places we need set, let's add some transition.</p>
+    <p>The first transition we're gonna add will be a uniformely distributed transition, also called <i>UNI</i>: to create our new UNI transition let's select the <img class="toolbar-btn" src="images/tutorial/uni_btn.png"> button and click between the places <i>ready</i> and <i>sent</i>. Then, let's double click on the newly created transition to customize it's parameters as follows:</p>
+    <p><img class="tutorial-screenshot" src="images/tutorial/uni_transition.png"></p>
+    <p>With these parameters we're basically telling the <i>send</i> transition to have a uniform probability distribution between 1 and 2 and to be able to fire only if the place <i>timedOut</i> has no marking (i.e. we want to send a message only if we've not yet timed out). Finally, selecting the <img class="toolbar-btn" src="images/tutorial/arc_btn.png">, we can create an arc between a place and a transition (or viceversa) by dragging the arc from the starting element to the destination element: in this case let's create an arc from <i>ready</i> to <i>send</i> and another one from <i>send</i> to <i>sent</i>.</p>
+    <p>The result should be as follows:</p>
+    <p><img class="tutorial-screenshot" src="images/tutorial/send_added.png"></p>
+    <p>If you're wondering what does that little <i>e</i> on top of the transition means, it stands for <i>enabling function</i>, in this case it refers to the condition <i>timedOut==0</i> we included in the transition.</p>
+    <p>Let's add three more transitions now.</p>
+    <p>The first will be a deterministiclally distributed transition (also called DET, added with the <img class="toolbar-btn" src="images/tutorial/det_btn.png"> button). Let's call this one <i>timeout</i> and give it a value (<i>Stochastic properties</i> tab) of 5. This transition should be place between <i>sending</i> and <i>timedOut</i>, with an arc from <i>sending</i> to <i>timeout</i> and another one from <i>timeout</i> to <i>timedOut</i>.</p>
+    <p>Then, we want to add an immediate transition (a.k.a. IMM, <img class="toolbar-btn" src="images/tutorial/imm_btn.png"> button) just above the <i>send</i> transition. We'll call this one <i>lost</i> and will have an incoming arc from <i>sent</i> and an outgoing one towards <i>ready</i>.</p>
+    <div class="alert alert-info" role="alert">
+      <strong>Protip 3:</strong> If you double-click on an arc, you can create joint nodes, for a better organization.
+    </div>
+    <p>Finally, we need a last IMM transition, between <i>sent</i> and <i>received</i>. This last transition, to be called <i>success</i>, should have two incoming arcs, one from <i>sent</i> and one from <i>sending</i>, and an outgoing one, towards <i>received</i>.</p>
+    <p>If done properly, the final result should be as follows:</p>
+    <p><img class="tutorial-screenshot" src="images/tutorial/timeout_final.png"></p>
+    <h2 id="subpar-saving-pn">Saving the PN</h2>
+    <p>The Petri Net is now completed and ready to be used for various analyses.</p>
+    <p>Remember to save the Petri Net before closing, by clicking the <img class="toolbar-btn" src="images/tutorial/save_btn.png"> button, if you want to reuse the net later. This process will generate a file in XPN format that contains the Petri Net description.</p>
+  </div>
+
+  <div class="row section features">
+    <h1 id="par-examples">Some example STPNs</h1>
+    <p>You can download and open the following example Stochastic Time Petri Nets (STPNs) in Oris (.xpn files) to experiment a bit around and learn how to do different kinds of analysis.</p>
+    <div class="row pn-example-row">
+      <div class="col-sm-6 col-md-4 card-container">
+        <div class="card transition">
+          <h3 class="transition">Transmission with Timeout</h3>
+          <p>Simple trasmission on a lossy channel with a timeout mechanism.</p>
+          <div class="cta-container transition"><a href="/pns/timeout.xpn" download class="cta">Download</a></div>
+          <div class="card_circle transition pn-timeout"></div>
+        </div>
+      </div>
+      <div class="col-sm-6 col-md-4 card-container">
+        <div class="card transition">
+          <h3 class="transition">Preemptive Server Queue</h3>
+          <p>Queue with two customers and one server with preemptive repeat different policy.</p>
+          <div class="cta-container transition"><a href="/pns/queue.xpn" download class="cta">Download</a></div>
+          <div class="card_circle transition pn-queue"></div>
+        </div>
+      </div>
+      <div class="col-sm-6 col-md-4 card-container">
+        <div class="card transition">
+          <h3 class="transition">Software Rejuvenation</h3>
+          <p>Software system subject to aging with a maintenance mechanism (rejuvenation).</p>
+          <div class="cta-container transition"><a href="/pns/rej.xpn" download class="cta">Download</a></div>
+          <div class="card_circle transition pn-rej"></div>
+        </div>
+      </div>
+    </div>
+    <div class="row pn-example-row">
+      <div class="col-sm-6 col-md-4 card-container">
+        <div class="card transition">
+          <h3 class="transition">Simple GSPN</h3>
+          <p>A simple example of a Generalized Stochastic Petri Net (i.e. only IMMs and EXPs).</p>
+          <div class="cta-container transition"><a href="/pns/simple_gspn.xpn" download class="cta">Download</a></div>
+          <div class="card_circle transition pn-simple-gspn"></div>
+        </div>
+      </div>
+      <div class="col-sm-6 col-md-4 card-container">
+        <div class="card transition">
+          <h3 class="transition">Software Rejuvenation 2</h3>
+          <p>Another, more complex, example of Software Rejuvenation, taken from a publication of Trivedi et al.</p>
+          <div class="cta-container transition"><a href="/pns/rej_trivedi.xpn" download class="cta">Download</a></div>
+          <div class="card_circle transition pn-rej-trivedi"></div>
+        </div>
+      </div>
+      <div class="col-sm-6 col-md-4 card-container">
+        <div class="card transition">
+          <h3 class="transition">Fischer's protocol</h3>
+          <p>Fischer's mutual exclusion protocol with three processes.</p>
+          <div class="cta-container transition"><a href="/pns/fischer.xpn" download class="cta">Download</a></div>
+          <div class="card_circle transition pn-fischer"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row section features">
+    <h1 id="par-reg-trans">Regenerative transient analysis</h1>
+    <p>One of the most useful analysis that can be conducted on a Petri Net is the <i>regenerative transient analysis</i>. This section, in particular, will cover a specific method of this kind of analysis: the <i>regenerative transient analysis with stochastic state classes</i>.</p>
+    <p>The transient analysis is the analysis of the probabilities of being in a certain state at a certain moment in time, given that the process started from another given state. This analysis generates a matrix, with time as the first dimension and the possible arrival states, starting from the initial marking, as second dimension.</p>
+    <p>Regenerative transient analysis indicates the transient analysis done on a generic Markov Regenerative Process (MPR). An MRP is a sthocastic process that, sooner or later, will certainly reach a regeneration (i.e. a moment in time where the past history of the process adds no information to the future probabilities).</p>
+    <div class="alert alert-warning" role="alert">
+      <strong>Keep in mind!</strong> Regenerative transient analysis with stochastic state classes only works under the assumption of <i>bounded regeneration</i>, i.e. the condition when there are no cycles without regenerations.
+    </div>
+    <h2 id="subpar-new-regen-trans-analysis">Starting a new analysis</h2>
+    <p>In this section we'll analyze the "Trasmission with Timeout" model we build in the previous section. If you don't have the model open in Oris (or you didn't save it) you can download it from the examples (<a href="/pns/timeout.xpn">link</a>) and open it again.</p>
+    <p>Once we have the model back up on the main pane, we can start a new regenerative transient analysis by clicking the <img class="toolbar-btn" src="images/tutorial/reg_trans_btn.png"> button. We'll notice a new panel, like the one below, with several parameter fields:</p>
+    <p><img class="tutorial-screenshot" src="images/tutorial/reg_trans_params.png"></p>
+    <h2 id="subpar-new-choosing-parameters">Choosing the parameters</h2>
+    <p>Let's explain briefly the main parameters:</p>
+    <ul>
+      <li><b>Time limit</b>: represent the temporal upper bound of the transient analysis, meaning that the analysis will run until the time limit specified is reached (or when a stop condition has occurred, if specified);</li>
+      <li><b>Allowed error</b>: specifies the maximum error we allow the results to have: higher allowed errors means faster analysis, but also more inaccurate results;</li>
+      <li><b>Discretization step</b>: since the analysis cannot be done in a continuous way, it have to be done on certain points of time: how close to each other these points will be is decided by the discretization step, where a smaller step means that more points will be calculated, which involves longer analysis time but more accurate result;</li>
+      <li><b>Extended regenerations</b>: if checked it enables the transient analysis to detect extended regenerations, i.e. when a DET transition fires and the rest of the GEN (generic) transitions are either reset or enabled for a deterministic time;</li>
+      <li><b>Verbose</b>: if checked it enables a more verbose logging mode, showing more lowe-level information, such as implementation details, in the log file;</li>
+      <li><b>Stop condition</b> (optional): a boolean expression to tell the engine to stop the analysis prematurely (i.e. before the time limit) when it's evaluated to true;</li>
+      <li><b>Rewards</b> (optional): a series of expressions that will be shown in the results of the analysys; if left blank, it's composed by all the reachable tangible states by default.</li>
+    </ul>
+    <p>For this example, let's choose a <i>Time limit</i> of 6, since the <i>timeout</i> transition is a DET that will fire at time 5, for sure nothing will happen after that. Being this a simple example, the analysis is going to be pretty fast, so we can ask an error of 0 without worrying too much. The <i>Discretization step</i> should be small enough to have the results a bit smooth and more precise: a value of 0.001 should be sufficient. In this case, wether we include the extended regenerations or not won't make any difference, so let's leave it unchecked.</p>
+    <h2 id="subpar-possible-actions">Possible actions</h2>
+    <p>As you click <i>OK</i>, you'll see a new panel open and the new analysis running. When the analysis is completed (shouldn't take long) you'll have on screen something like that:</p>
+    <p><img class="tutorial-screenshot" src="images/tutorial/reg_trans_done.png"></p>
+    <p>Let's talk about the various buttons we have on this panel:</p>
+    <ul>
+      <li>first of all, you can modify the analysis by clicking on the <img class="toolbar-btn" src="images/tutorial/modif_analysis_btn.png"> button, change the values of the parameters you want to update, click <i>OK</i> and finally relaunch the analysis with the new values with the <img class="toolbar-btn" src="images/tutorial/relaunch_analysis_btn.png">;</li>
+      <li>the <img class="toolbar-btn" src="images/tutorial/update_model_btn.png"> button is needed if, after a completed analysis, we want to modify the model and relaunch the analysis: in fact, if we just modify the model and click <img class="toolbar-btn" src="images/tutorial/relaunch_analysis_btn.png">, the analysis will be done on the unmodified version of the model, so in order to force the analysis engine to consider the new changes we need first to click on the <img class="toolbar-btn" src="images/tutorial/update_model_btn.png"> button;</li>
+      <li>by clicking on the <img class="toolbar-btn" src="images/tutorial/analysis_log_btn.png"> you can view the log of the analysis, where are logged all the main operations executed or, in case of errors, the possible nature and cause of such error(s);</li>
+      <li>finally, the <img class="toolbar-btn" src="images/tutorial/analysis_results_btn.png"> button is used to show the results of the analysis, in both a numerical and a graphical way.</li>
+    </ul>
+    <h2 id="subpar-numerical-results">Numerical results</h2>
+    <p>Let's click on the <img class="toolbar-btn" src="images/tutorial/analysis_results_btn.png"> button and try to explain the results panel a bit more in detail.</p>
+    <p><img class="tutorial-screenshot" src="images/tutorial/reg_trans_results.png"></p>
+    <p>The panel that will open by default will be the <i>Data</i> panel, where the results are shown in numerical form. In the <i>Data</i> panel we have one row for each time instant, in which a result is calculated, and one column for each reachable marking. The value inside each cell will then represent the chance to be in the marking of that column after the time of that row given that we started at time 0 in the first marking of the model. For example, let's consider the fifth cell from the top and second from the left: this is telling us that given that we started from the marking <i>ready sending</i> at time 0, the probability that, after time 0.004, the model is still in that same marking (<i>ready sending</i>) is 1. This is easy to understand because at the beginning only the transitions <i>send</i> and <i>timeout</i> are enabled and none of them can fire before time 1 (actually, <i>timeout</i> won't fire even before time 5) so the model is bound to remain in the same marking until, at least, time 1. Clearly each row represent a probability distribution, meaning that the values in each row have to sum exactly 1.</p>
+    <h2 id="subpar-graphical-results">Graphical results</h2>
+    <p><img class="tutorial-screenshot" src="images/tutorial/reg_trans_graph.png"></p>
+    <p>The <i>Graph</i> panel shows instead the graph built on top of the numerical results shown in the <i>Data</i> panel. More precisely, it shows a plot with several curves, where each curves correspond to a different column in the solution. These curves will vary depending on time, on the X axis, and will show the corresponding probability value for that instant in time on the Y axis.</p>
+    <div class="alert alert-info" role="alert">
+      <strong>Protip 4:</strong> You can hover on a curve to know which curve corresponds to which column.
+    </div>
+    <p>The next, and last step, is actually the most delicate and most important of the entire analysis: the interpretation of the results. Let's give an example using the graph of the results. First of all, since we didn't specify any reward, the curves shown here represent every reachable tangible state, in this case <i>ready sending</i>, <i>received</i> and <i>ready timedOut</i>. We notice that until time 1, the probability of being in the marking <i>ready sending</i> is 1, while for the other two is 0, for what we discussed earlier with the numerical results. From time 1 to 2 we see that the probability of being in <i>ready sending</i> decreases linearly, while the probability of being in the marking <i>received</i> does the exact opposite: that's because, being <i>send</i> a UNI between 1 and 2, in that timeframe there is an equally distributed chance of actually sending and finishing in the absorbing state <i>received</i>. At time 2 the two curves cross each other and after that, they increase and decrease nonlinearly, as that would involve that a message has been lost and another send has to be attempted (i.e. waiting a deterministic time of 1 and then another UNI distribution). At time 5, finally, the timeout mechanism triggers, meaning that the change of being in a state where it's trying to send drops to 0 (<i>ready sending</i>) and that the probability of having succesfully received the message cannot increas any further. We can also notice that the probability of being in the marking <i>ready timedOut</i> raises at exactly the last value of <i>ready sending</i> before the drop and then proceeds to remain constant: that's interpretable as the fact that if the process finds itself in <i>ready sending</i> (and not <i>received</i>) at time 5, then the timeout is triggered. As a last observation, we can notice that no marking involving the place <i>sent</i> is present and that's because those markings are all vanishng markings since all the enabled transitions are IMM transitions.</p>
+    <h2 id="subpar-rewards analysis">Analysis with rewards</h2>
+    <p>One last thing we can show in this section is how to specify rewards. Rewards are expressions on the model's states that represents certain behaviours of the model that particularly interesting to study. Let's say we want to compare the probability of the model of having "decided" if the message is lost or not (i.e. being either in <i>received</i> or in <i>timedOut</i>) with the probability of still being uncertain about the message's fate (i.e. being in <i>ready</i> and <i>sending</i>). This measures are translated into rewards using a specific syntax and are defined as follows:</p>
+    <p class="text-center">"<i>If(ready==1&&sending==1,1,0); If(received==1||timedOut==1,1,0)</i>"</p>
+    <p>If we enter this string into the <i>Rewards</i> field and rerun the analysis with the same values for the rest of the fields, we obtain the following graph:</p>
+    <p><img class="tutorial-screenshot" src="images/tutorial/reg_trans_rewards_graph.png"></p>
+    <p>We can see that these two curves are symmetric and sum 1 for every time instant, which means that the model is, at every moment, in one of the two described states: i.e. whether the message has been labeled or not as received/lost. We can also notice that the probabilities of the red curve (relative to the state <i>received OR timedOut</i>) are exactly the sum of the probabilities of the green and blue curve from the previous graph (respectively, the states <i>received</i> and <i>ready timedOut</i>).</p>
+  </div>
+
+  <div class="row section features">
+    <h1 id="par-gspn">GSPN analysis</h1>
+    <p>Let's have a look now at the GSPN analysis, another feature offered by Oris.</p>
+    <p>The GSPN analysis is an analysis just like the one we just saw, but for GSPN networks. A GSPN (Generalized Stochastic Petri Net) is a Petri Net with only immediate and exponential transitions.</p>
+    <h2 id="subpar-new-gspn-analysis">Transient and steady-state analysis</h2>
+    <p>Let's use, for this example, the net "Simple GSPN" from the examples (<a href="/pns/simple_gspn.xpn">link</a>). Once you have it downloaded and open in Oris, you can click on the <img class="toolbar-btn" src="images/tutorial/gspn_analysis_btn.png"> button. The various parameters in the analysis panel are exactly the same ones from the regenerative analysis we already examined, with the only exception of <i>Extended regenerations</i> being replaced by <i>Compute steady state</i>: while extended regenerations are not supported by the GSPN analysis, by checking this new option we can have the steady-state probabilities (i.e. as time goes to infinity) of the model calculated as a bonus and logged in the log of the analysis results.</p>
+    <p>For this example, let's choose a <i>Time limit</i> of 20 and leave the rest of the parameters with their default values. Once the computation is complete, we can see that, once again, the results are shown in the same manner of the regenerative analysis. If we open the graph tab we should see something like the following graph:</p>
+    <p><img class="tutorial-screenshot" src="images/tutorial/gspn_analysis_graph.png"></p>
+    <p>After a first transitory phase, we can see that the model reaches a steady state pretty soon. Clearly the probabilities for <i>P3</i> and <i>P4</i> are lower, since the execution flow of the model is split between the two after <i>P2</i>, with the probability of being in <i>P3</i> higher since the rate of its transition is lower than <i>P4</i>'s transition. Also we notice that <i>P2</i> is not listed, being a vanishing state. If you are interested in knowing the exact value of the steady-state probabilities for these three tangible states, you can rerun the analysis with <i>Compute steady</i> state checked and then open the log: the result should be 0.73 for <i>P1</i>, 0.18 for <i>P3</i> and 0.09 for <i>P4</i>, as you can see from this screenshot of the log:</p>
+    <p><img class="tutorial-screenshot" src="images/tutorial/gspn_log.png"></p>
+  </div>
+
+  <div class="row section features">
+    <h1 id="par-reg-ss">MRP steady-state analysis</h1>
+    <p>The class of Markov Regenerative Processes (MRPs) is one of the most generic and broader classes of processes underlying a PN. Due to this generality, MRP cover more cases than other simpler abstractions, but they're also usually harder to analyse.</p>
+    <p>While MRP transient analysis is covered by "Regenerative transient analysis" feature in Oris, steady-state computation can be efficiently achieved through the "Regenerative steady state analysis". This analysis, however, has the limitation of being usable only for those MRPs whose embedded DTMC in the regenerative states is <i>ergodic</i>, i.e. irreducible, aperiodic and positive recurrent. So, for example, the "Transmission with Timeout" net wouldn't be analysable with this method as the underlying process presents absorbing states and absorbing states are always reducible.</p>
+    <p>For this part of the tutorial, we'll then use the "Fischer's protocol" Petri Net. Once loaded into Oris, let's click on the <img class="toolbar-btn" src="images/tutorial/reg_ss_btn.png"> button in order to configure the new steady-state analysis. For this analysis only a few parameters are available for configuration: it can be chose whether or not to include extended regenerations or to use the verbose logging mode and stop conditions and rewards can be specified. For this example let's say we want to evaluate the probability at steady-state for a generic process to be either waiting to enter the critical section (a.k.a. latency) or inside the critical section itself. Being the Fischer's protocol simmetric, any of the three processes can be chosen, so it's correct to focus the analysis, for example, on the first process, thus leading to the following rewards:</p>
+    <p class="text-center">"<i>ready1+writing+waiting1; cs1</i>"</p>
+    <p>It is worth noticing that the place <i>reading1</i> is not included as it is a vanishing state, providing no additional probability to the reward. Once the analysis is complete, we can open the result panel to see that the steady-state probability of being in the critical section <i>cs1</i> is <i>0.075</i>, while the probability of being waiting to enter in it is <i>0.131</i>. If the analysis is rerun including <i>idle1</i> in the rewards, it can be seen how the remaining probability is concentrated in <i>idle1</i> (<i>0.751</i> circa), meaning that most of the time a process is in idle mode, i.e. not needing to enter the critical section.</p>
+    <p>This PN representing the Fischer's protocol is very useful as a benchmark since many different analysis can be achieved using the Oris regenerative steady-state analysis. A couple of examples can be to compute the occupation of the critical section by any process (using "<i>cs1+cs2+cs3</i>" as reward) or to evaluate how the latency of a single process ("<i>ready1+writing+waiting1</i>") varies when the characterising parameters of the protocol, such as waiting or writing time, are changed.</p>
+  </div>
+
+  <div class="row section features">
+    <h1 id="par-enabl-rest">Analysis under enabling restriction</h1>
+    <p>Enabling restriction is the condition when, for a certain state of a PN, at most one GEN transition is enabled. If for every state of a given PN the enabling restriction is valid, the PN is then said to be <i>under enabling restriction</i>.</p>
+    <p>Analysis under enabling restriction is a different method to perform regenerative transient analysis, similar to the method based on stochastic state classes. The advantage is that, when analysis with stochastic state classes requires the condition of bounded regeneration to be met in order to perform it, analysis under enabling restriction requires a different condition. If we encounter a PN where bounded regeneration is not valid but enabling restriction is, it would still be analisable thanks to this new analysis.</p>
+    <p>An example PN can be "Software Rejuvenation 2", from the examples section: in this model, the bounded regeneration is not valid (transition <i>tClock</i> stays enabled while the cycle of EXP transitions <i>tFProb-tDown-tUp</i> can happen infinite times) but the enabling restriction is (trivially demonstrated, since only one GEN is present in the entire model).</p>
+    <p>In order to start a new analysis we can click on the <img class="toolbar-btn" src="images/tutorial/reg_enabl_rest_btn.png"> button. For this analysis, parameters are as usual, except the <i>allowed error</i> which, in this case, represents the error allowed during the numerical evaluation of the embedded CTMC transient probabilities through uniformization, and not the final error on the MRP transiuent probabilities.</p>
+    <p>For the sake of this example, let's choose a <i>time limit</i> of 400 and a <i>discretization step</i> of 10. The following picture shows the graphical results of this analysis:</p>
+    <p><img class="tutorial-screenshot" src="images/tutorial/enabl_rest_analysis.png"></p>
+    <p>From the graphical results we can see how transient probability curves vary smoothly until the instant t=300, where many spikes are present: this is due the firing of the only GEN transition present, <i>tClock</i>, which is set as a DET transition with delay 300.</p>
+  </div>
+</div>
+
+
+
+<div id="sidebar-menu" class="col-md-1 hidden-xs hidden-sm">
+  <ul class="main-menu nav nav-stacked">
+  </ul>
+</div>
+
+<script type="text/javascript">
+  $(document).ready(function() {
+    var sidebarMainMenu = $('#sidebar-menu .main-menu');
+    var staticContent = $('#static-content');
+    staticContent.find('h1').each(function() {
+      sidebarMainMenu.append('<li id="'+ $(this).attr('id') + '-menu"><a href="#' + $(this).attr('id') + '">' + $(this).html() + '</li>');
+      title = sidebarMainMenu.find('#' + $(this).attr('id'));
+    });
+    staticContent.find('h2').each(function() {
+      prevTitle = sidebarMainMenu.find('#' + $(this).prevAll('h1').first().attr('id') + '-menu');
+      prevTitle.not(":has(ul)").append('<ul class="sub-menu"></ul>');
+      prevTitle.find('.sub-menu').append('<li id="'+ $(this).attr('id') + '-menu"><a href="#' + $(this).attr('id') + '">' + $(this).html() + '</li>');
+    });
+    var shiftWindow = function() { scrollBy(0, -70) };
+    if (location.hash) shiftWindow();
+    window.addEventListener("hashchange", shiftWindow);
+  });
+
+  $(function () {
+    var sidebar = $('#sidebar-menu .main-menu');
+    var top = sidebar.offset().top - 70;
+    console.log(top);
+
+    $(window).scroll(function (event) {
+      var y = $(this).scrollTop();
+      if (y >= top) {
+        sidebar.addClass('sidebar-fixed');
+      } else {
+        sidebar.removeClass('sidebar-fixed');
+      }
+    });
+  });
+</script>

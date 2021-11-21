@@ -1,0 +1,89 @@
+---
+layout: default
+title: Analysis of Timed and Stochastic Petri Nets
+---
+<div class="jumbotron">
+  <div class="col-lg-6">
+    <h1 class="oris">ORIS Tool</h1>
+    <h1 class="tagline">Analysis of timed and stochastic Petri nets</h1>
+  </div>
+
+  <div class="col-lg-6">
+    <a class="btn btn-lg btn-primary" href="./releases/oris-{{ site.oris_version }}.zip"  onclick="_gaq.push(['_trackEvent', 'Downloads', 'get', 'oris-2.08']);" download><span class="glyphicon glyphicon-download" style="margin-right:0.5em;"></span>Download</a>
+    </p>
+    <p style="margin-top: 1em">
+      Release {{ site.oris_version }}
+      (ask for <a href="kgojri<vgijoctoFsue(cbs" class="scrambled" rel="nofollow" onclick="_gaq.push(['_trackEvent', 'Contacts', 'click', 'support']);">support</a>).
+    </p>
+    <p>
+      Unzip and launch run.sh (Linux/macOS) or run.bat (Windows).
+    </p>
+    <p>
+      Java 17 is recommended (Java >= 11 is supported): get the
+      <a href="https://www.oracle.com/java/technologies/downloads/#jdk17-windows">installer</a> for Windows,
+      run <code style="font-size: 60%; line-height: 20px; position: relative; top: -2px;">brew install --cask temurin</code> on
+      macOS, or <code style="font-size: 60%; line-height: 20px; position: relative; top: -2px;">apt-get install openjdk-17-jre</code> on Linux.
+
+    </p>
+    <p style="margin-top: 1em">
+      <span class="new"></span>
+      The <a href="/sirio">Sirio library</a> is now
+      available!  The library implements the symbolic calculus and
+      analysis methods of ORIS. STPN models can be exported from the
+      GUI editor as "Java code" and analyzed in Sirio to
+      conduct parametric studies.
+    </p>
+    <p style="margin-top: 1em">
+      <span class="new"></span>
+      To get started with ORIS and Stochastic Time Petri Nets (STPNs), check our
+      <a href="https://www.oris-tool.org/papers/2019_tse_oris_tool.pdf">tool paper</a>
+      or the <a href="/tutorial">tutorial</a>.
+    </p>
+  </div>
+</div>
+<div class="clearfix visible-xs"></div>
+
+<div class="row section features">
+  <h1>Features</h1>
+  <img src="/images/screenshot.png" id="screenshot" alt="ORIS Tool screenshot">
+  <ul>
+    <li>
+      <span class="title">Graphical Petri net editor</span><br>
+      <span class="description">
+        Petri nets can be edited graphically, associating transitions
+        with earliest and latest time to fire (time Petri nets), or
+        with a deterministic or expolynomial probability density
+        function with finite or infinite support (stochastic time
+        Petri nets).  The editor includes features such as undo,
+        cut-and-paste, zoom, magnetic grid, alignment and even spacing
+        of elements, SVG export, sticky notes.
+      </span>
+    </li>
+    <li>
+      <span class="title">Non-deterministic analysis of time Petri nets</span><br>
+      <span class="description">
+        The state class graph of time Petri nets can be computed and
+        visualized graphically.  For stochastic time Petri nets, the
+        state class graph can highlight regeneration points and
+        exclude firings with null probability.
+      </span>
+    </li>
+    <li>
+      <span class="title">Transient analysis of non-Markovian stochastic Petri nets</span><br>
+      <span class="description">
+        Transient state probabilities of stochastic time Petri nets
+        can be computed through the forward enumeration of stochastic
+        state classes (distributions of time-to-fires after each
+        firing) within a time-bound.  Regenerative analysis combines
+        the enumeration of stochastic state classes up to regeneration
+        points with integral equation systems, in order to exploit the
+        repetitive structure of the underlying stochastic process.
+      </span>
+    </li>
+  </ul>
+  <p>
+    Check our video presentations at <a href="https://www.youtube.com/watch?v=ovYqVgnZTac">ICSE'20</a> and
+    <a href="https://www.youtube.com/watch?v=3UM4XdkEQ78">TOSME'21</a>.
+  </p>
+  <p>A previous release of ORIS, with support for the analysis of non-deterministic preemptive models, can be found at <a href="http://stlab.dinfo.unifi.it/oris1.0/">stlab.dinfo.unifi.it/oris1.0</a>.</p>
+</div>
