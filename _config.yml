@@ -1,4 +1,4 @@
 name: Oris Tool
 description: Analysis of timed and stochastic Petri nets
 exclude: [Gemfile, Gemfile.lock]
-oris_version: "2.3.9"
+oris_version: "2.3.10"
